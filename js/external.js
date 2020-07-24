@@ -90,11 +90,19 @@ console.log(studentSchedule);
 console.log(typeof studentSchedule);
 
 //Stating the conflict of the schedule
-var studentConflict = !studentSchedule;
+var studentConflict = studentSchedule !== true;
 
 //Determining if the status of the students requirements
-var studentClassChoice = (classFull && (studentSchedule || studentConflict))
+var studentClassChoice = (classFull && (studentSchedule || studentConflict));
 
 alert("Will this student be able to attend this class: " + studentClassChoice + ".");
 
 //Exercise 4: Question 4
+var chelPreMembership = true;
+var emilPreMembership = false;
+
+var items = prompt("How many items do you have?");
+var itemsNum = Number(items);
+var itemLimit = itemsNum >= 2;
+
+
