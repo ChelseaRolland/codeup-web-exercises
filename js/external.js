@@ -95,11 +95,7 @@ console.log(typeof studentSchedule);
 //Determining if the status of the students requirements
 var studentClassChoice = classFull && studentSchedule;
 
-
-
 alert("Will this student be able to attend this class: " + studentClassChoice + ".");
-
-
 
 //Exercise 4: Question 4
 // product offer = (person buys more than 2 items and offer has not expired) || (premium members and offer not expired)
