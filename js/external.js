@@ -1,4 +1,5 @@
 "use strict";
+
 console.log("message:", "Hello from external Javascript");
 
 alert("Welcome to my website!");
@@ -77,11 +78,13 @@ var weeklyPay = (googleHrsNum*googleRate) + (amazonHrsNum*amazonRate) + (faceboo
 alert("Congrats! You have been paid $" + weeklyPay + " this week!");
 
 //Exercise 3: Question 3
-alert("Welcome to your 1st day of class. We hope you enjoy yourself this semester!");
-var students = prompt("How many people are in your class?");
-console.log(typeof students);
+// enrolled = class not full && class scheduled does not conflict with current schedule
 
-var studentsNum = Number(students);
+alert("Welcome to your 1st day of class. We hope you enjoy yourself this semester!");
+var studentInput = prompt("How many people are in your class?");
+console.log(typeof studentInput);
+
+var studentsNum = Number(studentInput);
 console.log("message:", "How many people are in the class?")
 var classFull = studentsNum <= 30;
 
@@ -89,20 +92,39 @@ var studentSchedule = confirm("Is your scheduled \"Mon, Wed, and Fri?");
 console.log(studentSchedule);
 console.log(typeof studentSchedule);
 
-//Stating the conflict of the schedule
-var studentConflict = studentSchedule !== true;
-
 //Determining if the status of the students requirements
-var studentClassChoice = (classFull && (studentSchedule || studentConflict));
+var studentClassChoice = classFull && studentSchedule;
+
+
 
 alert("Will this student be able to attend this class: " + studentClassChoice + ".");
 
-//Exercise 4: Question 4
-var chelPreMembership = true;
-var emilPreMembership = false;
 
-var items = prompt("How many items do you have?");
-var itemsNum = Number(items);
+
+//Exercise 4: Question 4
+// product offer = (person buys more than 2 items and offer has not expired) || (premium members and offer not expired)
+alert("Welcome to the Sunshine and Peace Sundries. We love having you hear with us. We have some sweet new deals this week.")
+
+var premiumMembership = confirm("Do you have a premium membership?")
+console.log(premiumMembership);
+console.log(typeof premiumMembership);
+
+//Is the offer still available
+var productExpired = confirm("Has the offer expired?");
+console.log(productExpired);
+console.log(typeof productExpired);
+
+var itemsInput = prompt("How many items do you have?");
+var itemsNum = Number(itemsInput);
+
+//Comparing the amount of items the user has
 var itemLimit = itemsNum >= 2;
+console.log(itemLimit);
+console.log(typeof itemLimit);
+
+var productOffer = (premiumMembership || itemLimit) && !productExpired;
+console.log("note:", "testing the boolean if user meets the requirements for product offer")
+
+alert("Do you get the product offer? " + productOffer);
 
 
