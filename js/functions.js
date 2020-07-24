@@ -10,7 +10,7 @@
  */
 
 function sayHello(name) {
-    return "Hello " + name + " !";
+    return "Hello " + name + "!";
 }
 
 /**
@@ -21,7 +21,7 @@ function sayHello(name) {
  * console.log 'helloMessage' to check your work
  */
 
-var helloMessage = sayHello(Chelsea);
+var helloMessage = sayHello("Chelsea");
 console.log(helloMessage);
 
 /**
@@ -61,6 +61,7 @@ function isTwo(num) {
 }
 
 isTwo(random);
+console.log(random);
 console.log(isTwo(random));
 
 
@@ -80,6 +81,8 @@ function calculateTip (tipPercentage, billTotal) {
     var tipAmount =  tipPercentage * billTotal
     return tipAmount.toFixed(2);
 }
+
+
 
 /**
  * TODO:
