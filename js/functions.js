@@ -82,15 +82,15 @@
      */
 
     //Answer to Q.3
-    // function calculateTip (tip, bill) {
-    //     var tipFormat = parseFloat(tip) / 100;
-    //     var tipAmount =  tipFormat * bill;
-    //     return tipAmount;
-    // }
-    //
-    // console.log(calculateTip(20, 100));
-    // console.log(calculateTip(50, 100));
-    // console.log(calculateTip(10, 100));
+    function calculateTip (tip, bill) {
+        var tipFormat = parseFloat(tip) / 100;
+        var tipAmount =  tipFormat * bill;
+        return tipAmount;
+    }
+
+    console.log(calculateTip(20, 100));
+    console.log(calculateTip(50, 100));
+    console.log(calculateTip(10, 100));
 
     /**
      * TODO:
