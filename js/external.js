@@ -39,7 +39,7 @@ console.log("note:", "Asking if they want to pay $3/day for these movies.");
 var total = subtotal * 3;
 console.log(typeof total);
 
-alert("Thank you for your selection. Your total for these movies will be $" + total + ".");
+alert("Thank you for your selection. Your total for these movies will be $" + total.toFixed(2) + ".");
 
 
 //Exercise 3: Question 2
@@ -71,7 +71,7 @@ console.log(typeof facebookHrsNum);
 
 //Determining how much this person will make this week from the given inputted hours
 var weeklyPay = (googleHrsNum*googleRateNum) + (amazonHrsNum*amazonRateNum) + (facebookHrsNum*facebookRateNum);
-alert("Congrats! You have been paid $" + weeklyPay + " this week!");
+alert("Congrats! You have been paid $" + weeklyPay.toFixed(2) + " this week!");
 
 
 //Exercise 3: Question 3
