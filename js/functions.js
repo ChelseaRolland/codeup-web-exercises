@@ -107,6 +107,19 @@
         return tipAmount;
     }
 
+    /* Correct Answer from the Exercise
+    function calculateTipWithUser() {
+    var tipPercentage = prompt("Please enter the tip percentage (a number between 0 and 1)");
+    var billAmount = prompt("Please enter the total bill");
+    var tipAmount = calculateTip(parseFloat(tipPercentage), parseFloat(billAmount));
+    alert("You should tip: $" + tipAmount.toFixed(2));
+     }
+
+    calculateTipWithUser();
+
+
+     */
+
     console.log(calculateTip());
 
     /**
@@ -129,7 +142,8 @@
 
     function applyDiscount (originalPrice, discountPercent) {
         var discountAmt = originalPrice * discountPercent;
-        return discountAmt;
+        var finalPrice =  originalPrice - discountAmt
+        return finalPrice;
         // var priceInput = price //parseFloat(prompt("How much did your item(s) cost?"));
         // var discountPercentage = (Math.random());
         // var discountToOriginalAmt = priceInput * discountPercentage
