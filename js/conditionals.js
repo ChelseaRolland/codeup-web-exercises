@@ -20,6 +20,24 @@
  * console.logging the function's return value
  */
 
+function analyzeColor (input) {
+    if (input === 'blue') {
+        return input + " is the color of the sky.";
+    } else if (input === 'red') {
+        return "Strawberries are " + input + "."
+    } else if (input === 'cyan') {
+        return input + " is a blueish-green color.";
+    } else {
+        return "I do not know anything about this color."
+    }
+}
+
+console.log(analyzeColor('red'));
+console.log(analyzeColor('blue'));
+console.log(analyzeColor('cyan'));
+console.log(analyzeColor('yellow'));
+
+
 // Don't change the next two lines!
 // These lines create two variables for you:
 // - `colors`: a list of the colors of the rainbow
@@ -33,10 +51,36 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * You should see a different message every time you refresh the page
  */
 
+console.log(analyzeColor(randomColor));
+
 /**
  * TODO:
  * Refactor your above function to use a switch-case statement
  */
+
+function analyzeColorSwitch (input) {
+    switch (input) {
+        case 'blue':
+            return "Blue is the color of the sea.";
+            break;
+        case 'red':
+            return "Most apples are red.";
+            break;
+        case 'cyan':
+            return "Cyan is the step-brother of Teal.";
+            break;
+        default:
+            return "I do not know about this color";
+            break;
+
+    }
+}
+
+console.log(analyzeColorSwitch('cyan'));
+console.log(analyzeColorSwitch('blue'));
+console.log(analyzeColorSwitch('red'));
+console.log(analyzeColorSwitch('yellow'));
+console.log(analyzeColorSwitch(randomColor));
 
 /**
  * TODO:
@@ -44,6 +88,9 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
+
+var userColorInput = prompt("What is your favorite color?");
+alert(analyzeColor(userColorInput));
 
 /* ########################################################################## */
 
@@ -67,6 +114,29 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * return value.
  */
 
+function calculateTotal (num, total) {
+    if (num === 0) {
+        return total;
+    } else if (num === 1) {
+        return total - (total * .1);
+    } else if (num === 2) {
+        return total - (total * .25);
+    }else if (num === 3) {
+        return total - (total * .35);
+    }else if (num === 4) {
+        return total - (total *.5);
+    }else if (num === 5) {
+        return total - (total);
+    }else {
+        return "We do not have any promotions for you."
+    }
+}
+
+console.log(calculateTotal(0, 100)) // returns 100
+console.log(calculateTotal(4, 100)) // returns 50
+console.log(calculateTotal(5, 100)) // returns 0
+
+
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 6.
@@ -74,8 +144,17 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * and alerts to display to the user what their lucky number was, what their
  * price before the discount was, and what their price after the discount is.
  */
-// Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+//Generate a random number between 0 and 6
+var luckyNumber = Math.floor(Math.random() * 6);
+
+var userBillTotalInput = parseFloat(prompt("What is your total bill?"));
+var finalAmt = calculateTotal(luckyNumber, userBillTotalInput);
+
+alert("Congrats! Your lucky number is: " + luckyNumber + ". Your original bill total is: $" + userBillTotalInput.toFixed(2) + ". Your final price after this discount is: $" + finalAmt.toFixed(2) + ".");
+
+alert("Congrats! Your lucky number is: " + luckyNumber + ".");
+alert("Your original bill total is: " + userBillTotalInput.toFixed(2) + ".");
+alert("Your final amount with discount is: " + finalAmt.toFixed(2) + ".");
 
 /**
  * TODO:
@@ -93,3 +172,28 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+
+
+if (confirm("Would you like to enter a number")) {
+    var desiredNumber = parseFloat(prompt("Please input your desired number"));
+
+    if (desiredNumber % 2 === 0) {
+        alert("This number is EVEN");
+    } else {
+        alert("This number is ODD");
+    }
+
+    var hundredDesiredNumber = desiredNumber + 100;
+
+    alert("This is your number plus 100: " + hundredDesiredNumber);
+
+
+    if (desiredNumber > 0) {
+        alert("This number is POSITIVE")
+    } else {
+        alert("This number is NEGATIVE")
+    }
+
+} else {
+    alert("This is not a number!");
+}
