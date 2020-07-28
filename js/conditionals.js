@@ -28,7 +28,7 @@ function analyzeColor (input) {
     } else if (input === 'cyan') {
         return input + " is a blueish-green color.";
     } else {
-        return "I do not know anything about this color."
+        return "I do not know anything about the color: " + input + "."
     }
 }
 
@@ -51,6 +51,7 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * You should see a different message every time you refresh the page
  */
 
+//console.log("randomColor: " + randomColor) --> This way you can keep track of your code
 console.log(analyzeColor(randomColor));
 
 /**
@@ -70,7 +71,7 @@ function analyzeColorSwitch (input) {
             return "Cyan is the step-brother of Teal.";
             break;
         default:
-            return "I do not know about this color";
+            return "I do not know about the color: " + input + ".";
             break;
 
     }
@@ -114,21 +115,26 @@ alert(analyzeColor(userColorInput));
  * return value.
  */
 
-function calculateTotal (num, total) {
-    if (num === 0) {
+//write out/breakdown the code into plain english then work on it from there to make it easier to decipher
+
+function calculateTotal (luckyNum, total) {
+    //figure out if we need a discount, or how much to discount
+    //apply the discount to the bill
+
+    if (luckyNum === 0) {
         return total;
-    } else if (num === 1) {
+    } else if (luckyNum === 1) {
         return total - (total * .1);
-    } else if (num === 2) {
+    } else if (luckyNum === 2) {
         return total - (total * .25);
-    }else if (num === 3) {
+    }else if (luckyNum === 3) {
         return total - (total * .35);
-    }else if (num === 4) {
+    }else if (luckyNum === 4) {
         return total - (total *.5);
-    }else if (num === 5) {
+    }else if (luckyNum === 5) {
         return total - (total);
     }else {
-        return "We do not have any promotions for you."
+        return alert("Error! Not a valid lucky number: " + luckyNumber + ". We do not have any promotions for you.");
     }
 }
 
@@ -197,3 +203,35 @@ if (confirm("Would you like to enter a number")) {
 } else {
     alert("This is not a number!");
 }
+
+
+//Refactor the code to include a function
+
+//if what the user inputted wasn't a number
+// function getNumberFromUser() {
+//     var usersInputNumber =  parseFloat(prompt("Please enter a number."));
+//     if (isNaN(usersInputNumber)) {
+//         alert("That's not a number!");
+//         return getNumberFromUser();
+//     }else {
+//         return usersInputNumber;
+//     }
+// }
+//
+// function playNumberGame () {
+//     var userConfirmInput = confirm("Do you want to enter a number?");
+//     if (userConfirmInput) {
+//         var usersNumber =  getNumberFromUser();
+//         if (usersNumber % 2 === 0) {
+//             alert("Your number is EVEN!");
+//         } else {
+//             alert("Your numbers is ODD");
+//         }
+//         alert("Your number plus one hundred is " + (usersNumber + 100));
+//         alert("Your number is " + (usersNumber < 0 ? "negative" : "positive") + ".");
+//     } else {
+//         alert("This is not a number!");
+//     }
+// }
+//
+// playNumberGame();
