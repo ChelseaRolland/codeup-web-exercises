@@ -74,8 +74,9 @@
     second([1,2,3,4,5]);
 
     function last (arrays) {
-        let lastElement = arrays[arrays.length - 1];
-        console.log(lastElement);
+        console.log(arrays[4])
+        // let lastElement = arrays[arrays.length - 1];
+        // console.log(lastElement);
     }
 
     last([1,2,3,4,5]);
