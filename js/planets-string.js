@@ -26,58 +26,36 @@
      * string, and <li> tags around each planet.
      */
 
-    //var planetBreakString = planetsArray.join('<br>');
+    var planetBreakString = planetsArray.join('<br>');
 
-    //console.log(planetBreakString);
+    console.log(planetBreakString);
 
     //Bonus
 
+    var planetList = [];
+    planetsArray.forEach(function (planet) {
+        console.log(planet);
+        planetList.push("<li>" + planet + "</li>");
+        planet++;
+    })
+
+    //For Loop example below
+
     // for (let i = 0; i < planetsArray.length; i++) {
-    //     planetsArray.splice(planetsArray[i], 0, '<li>', '</li>');
+    //     planetList.push("<li>" + planetsArray[i] + "</li>");
+    //     console.log(planetList);
     // }
-    // console.log(planetsArray);
-        //for (let j = 0; j < planetsArray.length; j++) {
-            //var planetListString = planetsArray.join('<li>');
-            //console.log(planetListString);
-        //}
-    //}
 
+    console.log(planetList);
 
+    planetList.unshift("<ul>");
+    // //console.log(planetList);
 
-    //planetsArray.push("</li>");
-    //console.log(planetsArray);
+    planetList.push("</ul>");
+    // //console.log(planetList);
 
-    //planetsArray.unshift("<li>");
-    // console.log(planetsArray);
-    //
-    // var planetListString = planetsArray.join('</li>');
-    // console.log(planetListString);
-    // //
-    // var planetListArray = planetListString.split();
-    // console.log(planetListArray);
-    // //
-    // planetListArray.push("</li>");
-    // console.log(planetListArray);
-    //
-    // planetListArray.unshift("<li>");
-    // console.log(planetListArray);
-    //
-    // var planet1 = planetListArray.join("");
-    // console.log(planet1);
+    var planetFinalString = planetList.join('');
+    console.log(planetFinalString);
 
-    // var planetUnorderdEnd = planetListArray.push('</ul>');
-    // console.log(planetUnorderdEnd);
-    // console.log(planetListArray);
-    //
-    // var planetBeginning = planetListArray.unshift('<ul>');
-    // console.log(planetListArray);
-    //
-    // var planetFinal = planetListArray.join(', ');
-    // console.log(planetFinal);
-    //
-    //
-    // var planetUnorderedFirst = planetUnorderedEnd.unshift("<ul>");
-    //
-    // console.log(planetUnorderedFirst);
 
 })();
