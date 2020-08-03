@@ -29,6 +29,7 @@
     var planetBreakString = planetsArray.join('<br>');
 
     console.log(planetBreakString);
+    document.write(planetBreakString); //this shows it in the HTML
 
     //Bonus
 
@@ -56,6 +57,38 @@
 
     var planetFinalString = planetList.join('');
     console.log(planetFinalString);
+
+    document.write(planetFinalString); //this shows it in the HTML
+
+    //Instructor Review of BONUS Question
+
+    // <ul>
+    //     <li>1</li>
+    //     <li>2</li>
+    // </ul>
+
+
+    // var planetsUL = "<ul>";
+    //
+    // planetsArray.forEach(function (planet) {
+    //     planetsUL += "<li>" + planet + "</li>";
+    // })
+    //
+    // planetsUL += "</ul>"
+    //
+    // console.log(planetsUL);
+    // document.write(planetsUL);
+
+    // var planetULA = "<ul><li>";
+    // planetULA += planetsArray.join("</li><li>");
+    // planetULA += "</li></ul>";
+    //
+    // console.log('same as below just spaced differently',planetULA);
+    // document.write(planetULA);
+    //
+    //
+    // var planetListA = "<ul><li>"+planetsArray.join("</li><li>")+"</li></ul>"
+    // console.log('Roberts Way', planetListA);
 
 
 })();
