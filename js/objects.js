@@ -12,6 +12,8 @@
      *  > console.log(person.lastName) // "Sanchez"
      */
 
+
+    //Q1
     var person = {
         firstName: "Chelsea",
         lastName: "Rolland"
@@ -29,6 +31,7 @@
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
 
+    //Q2
     person.sayHello = function () {
         console.log(person.firstName + " " + person.lastName + " says hello!");
     }
@@ -50,6 +53,7 @@
      * and console.log the relevant messages for each person
      */
 
+    //Q3
     var shoppers = [
         {name: 'Cameron', amount: 180},
         {name: 'Ryan', amount: 250},
@@ -60,7 +64,7 @@
             if (shopper.amount > 200) {
                 var discount = .12
                 var finalDiscount = shopper.amount - (shopper.amount * discount);
-                console.log('H.E.B. Offer: ', "Shopper Name: " + shopper.name + " Amount before discount: $" + (shopper.amount).toFixed(2) + " discount: $" + (shopper.amount * discount).toFixed(2) + " amount after the discount: $" + finalDiscount.toFixed(2));
+                console.log('H.E.B. Offer: ', "Shopper Name: " + shopper.name + ". Amount before discount: $" + (shopper.amount).toFixed(2) + ". discount: $" + (shopper.amount * discount).toFixed(2) + ". amount after the discount: $" + finalDiscount.toFixed(2) + ".");
             } else {
                 console.log("You do not receive the discount.")
             }
@@ -79,6 +83,7 @@
      * > console.log(books[0].author.lastName) // "Adams"
      */
 
+    //Q4
     var books = [
         {title: "Naruto", author: {firstName: "Masashi", lastName: "Kishimoto"}},
         {title: "Bleach", author: {firstName: "Tite", lastName: "Kubo"}},
@@ -116,6 +121,13 @@
      *      ...
      */
 
+    //Q5
+    books.forEach(function (book) {
+        console.log("Book #" + books.indexOf(book));
+        console.log("Title: " + book.title);
+        console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+    });
+
 
 
     /**
@@ -128,5 +140,12 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+
+
+    //BONUS
+    // function createBook (title, author) {
+    //     var bookObjects = {title: title, author: author}
+    // }
+
 
 })();
