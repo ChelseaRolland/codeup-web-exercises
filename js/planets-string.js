@@ -49,10 +49,10 @@
     console.log(planetList);
 
     planetList.unshift("<ul>");
-    // //console.log(planetList);
+    //console.log(planetList);
 
     planetList.push("</ul>");
-    // //console.log(planetList);
+    //console.log(planetList);
 
     var planetFinalString = planetList.join('');
     console.log(planetFinalString);
