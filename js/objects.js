@@ -33,7 +33,7 @@
 
     //Q2
     person.sayHello = function () {
-        console.log(person.firstName + " " + person.lastName + " says hello!");
+        console.log(this.firstName + " " + this.lastName + " says hello!");
     }
 
     console.log(person);
@@ -60,15 +60,19 @@
         {name: 'George', amount: 320}
     ];
 
-        shoppers.forEach(function(shopper){
-            if (shopper.amount > 200) {
-                var discount = .12
-                var finalDiscount = shopper.amount - (shopper.amount * discount);
-                console.log('H.E.B. Offer: ', "Shopper Name: " + shopper.name + ". Amount before discount: $" + (shopper.amount).toFixed(2) + ". discount: $" + (shopper.amount * discount).toFixed(2) + ". amount after the discount: $" + finalDiscount.toFixed(2) + ".");
+    function discountChecker(shoppers) {
+        shoppers.forEach(function (shopper) {
+            if (shopper.amount >= 200) {
+                var discount = (shopper.amount * .12).toFixed(2);
+                var finalDiscount = shopper.amount - (discount);
+                console.log('H.E.B. Offer: ', + shopper.name + ". Amount before discount: $" + (shopper.amount).toFixed(2) + ". They qualify for the 12% discount, which will be - discount: $" + discount + ". Final total will be: $" + finalDiscount.toFixed(2) + ".");
             } else {
-                console.log("You do not receive the discount.")
+                console.log("You do not receive the discount. Your final total is $" + shopper.amount.toFixed(2))
             }
-            });
+        });
+    }
+
+    discountChecker(shoppers);
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -123,12 +127,23 @@
 
     //Q5
     books.forEach(function (book) {
-        console.log("Book #" + books.indexOf(book));
+        console.log("Book # " + (books.indexOf(book) + 1));
         console.log("Title: " + book.title);
         console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+        console.log("---");
     });
 
+    function loggingBooks(booksArray){
+        for (let i = 0; i < booksArray.length; i++) {
+            var book = booksArray[i];
+            console.log("Book # " + (i + 1));
+            console.log("Title: " + book.title);
+            console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+            console.log("---");
+        }
+    }
 
+    loggingBooks(books);
 
     /**
      * Bonus:
@@ -136,16 +151,44 @@
      *   name and returns a book object with the properties described
      *   previously. Refactor your code that creates the books array to instead
      *   use your function.
-     * - Create a function named `showBookInfo` that accepts a book object and
+     * -
+     * Create a function named `showBookInfo` that accepts a book object and
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
 
 
     //BONUS
-    // function createBook (title, author) {
-    //     var bookObjects = {title: title, author: author}
-    // }
+
+
+    //B.1
+    function createBook (title, authorFirstName, authorLastName, booksArray) {
+        //booksArray --> the array we are pushing the info to
+        var newBook = {
+            title: title,
+            author: {
+                firstName: authorFirstName,
+                lastName: authorLastName
+            }
+        }
+        booksArray.push(newBook);
+        return booksArray;
+    }
+    createBook("Bacon", "Mac", "Millan", books);
+    loggingBooks(books);
+
+    //B.2
+    function showBookInfo(booksArray){
+        for (let i = 0; i < booksArray.length; i++) {
+            var book = booksArray[i];
+            console.log("Book # " + (i + 1));
+            console.log("Title: " + book.title);
+            console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+            console.log("---");
+        }
+    }
+
+    showBookInfo(createBook("Butterfly", "Dude", "Freedom", books));
 
 
 })();

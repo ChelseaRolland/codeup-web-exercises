@@ -3,12 +3,20 @@
  If the item does not exist in the provided array, return an empty array.
  */
 
-
-// Given:
-// var fruits = [“apple”, “banana”, “orange”, “apple”, “pineapple”];
-// allIndexesOf(fruits, “apple”) should return the array [0, 3]
-// allIndexesOf(fruits, “guava”) should return the array []
-// allIndexesOf(fruits, “pineapple”) should return [4]
+// let allIndexesOf = function (arr, val) {
+//     if (arr.indexOf(val) === -1) {
+//         return [];
+//     } else {
+//         console.log(arr.indexOf(val));
+//     }
+// }
+//
+// // Given:
+// var fruits = ["apple","banana","orange","apple","pineapple"];
+//
+// allIndexesOf(fruits, "apple"); //should return the array [0, 3]
+// //allIndexesOf(fruits, “guava”); //should return the array []
+// //allIndexesOf(fruits, “pineapple”); //should return [4]
 
 // Define a function named removeAll(array, value) that takes in two arguments. The first argument should be an array and the second argument should be a value you wish to remove
 // Given:
