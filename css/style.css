@@ -1,10 +1,11 @@
 .fancy-header {
     color: orange; /* single line comment */
     text-decoration: underline teal;
+    font-family: Georgia;
 }
 
 h2.smaller-header {
     color: teal;
-    font-family: Chalkboard;
+    font-family: Georgia;
     text-decoration: underline dotted orange;
 }
