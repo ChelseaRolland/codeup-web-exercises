@@ -12,45 +12,76 @@
 
 <form method="POST" action="https://www.elformo.com/forms/8f75abc6-c5e0-4cb1-8f85-2ccbe8bae49f">
    <div>
-    <label for="email">Email: <input id="email" type="text" name="email" placeholder="Enter Email Here" /></label>
+    <label for="email">Email:</label>
+       <input id="email" type="text" name="email" placeholder="Enter Email Here" />
     <br>
-    <label for="password">Password: <input id="password" type="password" name="password" placeholder="Enter Password Here"/></label>
+    <label for="password">Password:</label>
+       <input id="password" type="password" name="password" placeholder="Enter Password Here"/>
    </div>
 
-    <br>
-
     <div>
-    Bio:
-    <br>
-    <label for="bio"><textarea id="bio" name="biography" placeholder="Enter Brief Biography Here" maxlength="100" columns="30" rows="10"></textarea></label>
+    <label for="bio">Bio:</label>
+        <br>
+        <textarea id="bio" name="biography" placeholder="Enter Brief Biography Here" maxlength="100" cols="30" rows="10"></textarea>
     </div>
 
     <hr>
 
     <section>
         <h4>Wanna signup for our famous newsletter?</h4>
-        <span><label for="newsletter"><input id="newsletter" name="newsletter_signup" value="true" type="checkbox" checked>Sign Me Up!</label></span>
+        <span>
+            <input id="newsletter" name="newsletter_signup" value="true" type="checkbox" checked/>
+            <label for="newsletter">Sign Me Up!</label>
+        </span>
 
         <br>
         <h3>How did you hear about us?</h3>
-        <span><label for="billboard"><input id="billboard" type="radio" name="communication_channels" value="billboard"/>Billboard</label></span><br>
-        <span><label for="radio-ad"><input id="radio-ad" type="radio" name="communication_channels" value="radio-ad"/>Radio Advertisement</label></span><br>
-        <span><label for="internet-ad"><input id="internet-ad" type="radio" name="communication_channels" value="internet-ad"/>Internet Advertisement</label></span><br>
-        <span><label for="other"><input id="other" type="radio" name="communication_channels" value="other" />Other</label></span><br>
-    </section>
+
+        <span>
+            <input id="billboard" type="radio" name="aboutUs" value="billboard"/>
+            <label for="billboard">Billboard</label>
+        </span>
+
         <br>
+        <span>
+            <input id="radio-ad" type="radio" name="aboutUs" value="radio-ad"/>
+            <label for="radio-ad">Radio Advertisement</label>
+        </span>
+
+        <br>
+        <span>
+            <input id="internet-ad" type="radio" name="aboutUs" value="internet-ad"/>
+            <label for="internet-ad">Internet Advertisement</label>
+        </span>
+
+        <br>
+        <span>
+            <input id="other" type="radio" name="aboutUs" value="other"/>
+            <label for="other">Other</label>
+            <br>
+            <textarea id="user-input" name="aboutUs" placeholder="Other: Input Here"></textarea>
+        </span>
+
+        <br>
+    </section>
+
     <section>
         <h3>What browser do you utilize the most?</h3>
-        <label for="web-browser"> <select id="web-browser" name="web-browser" >
-            <option value="Chrome">Chrome</option>
-            <option value="Mozilla">Firefox</option>
-            <option value="Safari">Safari</option>
-            <option value="Explorer">Internet Explorer</option>
-        </select></label>
+        <label for="web-browser"><label for="web-browser">
+
+        <select id="web-browser" name="web-browser" >
+                <option value="blank: non-selection"></option>
+                <option value="Chrome">Chrome</option>
+                <option value="Mozilla">Firefox</option>
+                <option value="Safari">Safari</option>
+                <option value="Explorer">Internet Explorer</option>
+                <option value="None of the Above">Other</option>
+        </select>
+
     </section>
 
     <hr>
-
+    <br>
     <button type="submit">Submit the form</button>
 </form>
 
