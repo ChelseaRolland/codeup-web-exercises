@@ -1,11 +1,51 @@
+body {
+    background-image: url("../img/sea-edge-79ab30e2.png");
+    background-color: #BCC7DC;
+    background-repeat: no-repeat;
+    font-family: "Arial Narrow";
+}
 .fancy-header {
     color: orange; /* single line comment */
     text-decoration: underline teal;
     font-family: Georgia;
+    text-align: center;
 }
 
 h2.smaller-header {
     color: teal;
-    font-family: Georgia;
+    font-family: Marion;
     text-decoration: underline dotted orange;
+}
+
+ul {
+    list-style: square;
+}
+
+ol {
+    list-style: upper-alpha;
+}
+
+td {
+    font-family: "American Typewriter";
+    text-align: center;
+    color: #FAE5D5;
+}
+
+th {
+    font-weight: bold;
+    text-align: center;
+    color: #8F8A8E;
+}
+
+a:link {
+    color: #242E77;
+}
+a:visited {
+    color: #9E5A8F;
+}
+a:active {
+    color: #67ACC3;
+}
+a:hover {
+    color: #7D0435;
 }
