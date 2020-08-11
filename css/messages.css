@@ -34,3 +34,26 @@ div {
     background-color: #CF6456;
     color: #963543;
 }
+
+/*BONUS*/
+:root {
+    --main-bg-color: #B5A89B;
+}
+
+.checking-css-variables {
+    margin: 0 auto;
+    border-radius: 5px 25px;
+    background-color: var(--main-bg-color);
+    width: calc(75% - 30px);
+    height: 25px;
+    text-align: center;
+}
+
+#adjust {
+    background-color: var(--main-bg-color);
+    border: 0;
+    color: #6F5C5D;
+    font-weight: bold;
+    padding: 0 50px;
+    text-align: center;
+}
