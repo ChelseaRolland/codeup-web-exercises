@@ -25,7 +25,7 @@ fieldset {
     /* It should have no border */
     /* Its background should be white */
     padding: 1em;
-    border: 0;
+    border: none;
     background-color: #FFF;
 }
 
@@ -39,8 +39,8 @@ fieldset {
 .form-group {
     /* This element must use 100% of the width */
     /* It should have a separation of .5em from elements on top of it and below it*/
-    width: 100%;
-    margin: .5em 0em;
+    width: 100%; /* There is no border or padding so there is no need for calc()*/
+    margin: .5em 0;
 }
 
 .form-label {
