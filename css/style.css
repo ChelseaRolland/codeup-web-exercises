@@ -1,40 +1,53 @@
 body {
-    background-image: url("../img/sea-edge-79ab30e2.png");
+    background-image: url("../img/bush.png");
     background-color: #BCC7DC;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     font-family: "Arial Narrow";
 }
+
+#top {
+    text-align: center;
+}
+
 .fancy-header {
     color: orange; /* single line comment */
     text-decoration: underline teal;
     font-family: Georgia;
+}
+
+#first {
+    color: #7D0435;
     text-align: center;
+    text-decoration: underline chartreuse;
 }
 
 h2.smaller-header {
     color: teal;
-    font-family: Marion;
+    font-family: 'Patrick Hand SC', cursive;
     text-decoration: underline dotted orange;
 }
 
 ul {
-    list-style: square;
+    list-style: katakana-iroha;
 }
 
 ol {
-    list-style: upper-alpha;
+    list-style: lower-greek;
 }
 
 td {
     font-family: "American Typewriter";
     text-align: center;
-    color: #FAE5D5;
+    color: #4F5E44;
+    font-weight: bold;
 }
 
 th {
     font-weight: bold;
     text-align: center;
-    color: #8F8A8E;
+    color: #242E77;
+    font-family: 'Rock Salt', cursive;
+    text-decoration: underline;
 }
 
 a:link {
@@ -44,8 +57,16 @@ a:visited {
     color: #9E5A8F;
 }
 a:active {
-    color: #67ACC3;
+    color: #6F699D;
 }
 a:hover {
     color: #7D0435;
+}
+
+table {
+    border: 2px #7D0435 dotted;
+}
+td, tr, th {
+    border: 1px #7D0435 dotted;
+    padding: 10px;
 }
