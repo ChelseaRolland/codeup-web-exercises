@@ -70,9 +70,8 @@ a {
 }
 .container {
     padding-top: 2em;
-    padding-right: 2em;
 }
-.profile-details, .who-to-follow{
+.profile-details, .who-to-follow {
     width: calc(25% - 1em);
     margin: 0 .5em;
     float: left;
@@ -95,7 +94,8 @@ a {
     margin-top: 1.33em;
 }
 .media-body {
-    width: calc(100% - 1.33em);
+    float: left;
+    width: calc(100% - 50px);
 }
 .btn {
     border: 1px solid var(--main-link-color);
