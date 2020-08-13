@@ -54,7 +54,7 @@ a {
 }
 .profile-image {
     position: absolute;
-    top: 25%;
+    top: 15em;
 }
 .profile-form {
     float: right;
