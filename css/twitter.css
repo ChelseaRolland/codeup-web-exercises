@@ -72,7 +72,7 @@ a {
     padding-top: 2em;
     padding-right: 2em;
 }
-.profile-details{
+.profile-details, .who-to-follow{
     width: calc(25% - 1em);
     margin: 0 .5em;
     float: left;
@@ -81,11 +81,6 @@ a {
     width: calc(50% - 1em);
     margin: 0 .5em;
     float: left;
-}
-.who-to-follow {
-    width: calc(25% - 1em);
-    margin: 0 .5em;
-    float: right;
 }
 .media {
     width: 100%;
