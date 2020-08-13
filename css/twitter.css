@@ -29,7 +29,7 @@ a {
     background: var(--light-bg);
     position: fixed;
     width: 100%;
-    z-index: 1050;
+    z-index: 1000; /* Can be 1 in this case since there are no other z-indexes*/
 }
 .nav {
     list-style-type: none;
