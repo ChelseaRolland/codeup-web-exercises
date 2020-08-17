@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Bonus | Flexbox Exercise</title>
-    <link rel="stylesheet" href="css/bonus-footer-flexbox"/>
+    <link rel="stylesheet" href="css/bonus-footer-flexbox.css"/>
 </head>
 <body>
+
+<div class="filling-space">Filling Out the Space</div>
+<div class="filling-space">Filling Out the Space</div>
+<div class="filling-space">Filling Out the Space</div>
+<div class="filling-space">Filling Out the Space</div>
+<div class="filling-space">Filling Out the Space</div>
+<div class="filling-space">Filling Out the Space</div>
 
 <footer>
     <h1>Contact Us</h1>
@@ -24,27 +31,31 @@
 <!--        <p id="general-email">General: sayhi@bamboostudio.com</p>-->
 <!--        <p id="support">support@bamboostudio.com</p>-->
         <div class="icons">
-            <ul>
-                <li><a><i class="fab fa-facebook-f"></i></a></li>
-                <li><a><i class="fab fa-twitter"></i></a></li>
-                <li><a><i class="fab fa-instagram"></i></a></li>
-                <li><a><i class="fab fa-snapchat"></i></a></li>
-                <li><a><i class="fas fa-wifi"></i></a></li>
+            <ul class="footer-list-icons">
+                <li class="icons-tags"><a><i class="fab fa-facebook-f"></i></a></li>
+                <li class="icons-tags"><a><i class="fab fa-twitter"></i></a></li>
+                <li class="icons-tags"><a><i class="fab fa-instagram"></i></a></li>
+                <li class="icons-tags"><a><i class="fab fa-snapchat"></i></a></li>
+                <li class="icons-tags"><a><i class="fas fa-wifi"></i></a></li>
             </ul>
         </div>
     </div>
     <div class="right-footer">
         <form class="form-input">
-        <input type="text" id="name" name="username" class="form-control" placeholder="Name"><br>
-        <input type="text" id="email" name="email" class="form-control" placeholder="Email"><br>
-        <input type="text" id="number" name="user-number" class="form-control" placeholder="Telephone #"><br>
-        <textarea id="comment" name="users-comment" class="form-control" placeholder="Comment"></textarea><br>
-        <button type="submit">Submit</button>
+            <ul>
+                <li class="info-boxes"><input type="text" id="name" name="username" class="form-control" placeholder="Name"></li>
+                <li class="info-boxes"><input type="text" id="email" name="email" class="form-control" placeholder="Email"></li>
+                <li class="info-boxes"><input type="text" id="number" name="user-number" class="form-control" placeholder="Telephone #"></li>
+                <li class="info-boxes"><textarea id="comment" name="users-comment" class="form-control" placeholder="Comment"></textarea></li>
+            </ul>
+<!--        <input type="text" id="name" name="username" class="form-control" placeholder="Name"><br>-->
+<!--        <input type="text" id="email" name="email" class="form-control" placeholder="Email"><br>-->
+<!--        <input type="text" id="number" name="user-number" class="form-control" placeholder="Telephone #"><br>-->
+<!--        <textarea id="comment" name="users-comment" class="form-control" placeholder="Comment"></textarea><br>-->
+        <button type="submit" id="btn">Submit</button>
         </form>
     </div>
 </footer>
-
-
 
 <script src="https://kit.fontawesome.com/662caa46d6.js" crossorigin="anonymous"></script>
 </body>

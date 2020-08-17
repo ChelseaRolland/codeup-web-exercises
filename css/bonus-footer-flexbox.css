@@ -1,0 +1,48 @@
+:root {
+    --bg-color: #AC4A4C;
+    --text-box-color: #F8D7AB;
+}
+
+* {
+    box-sizing: border-box;
+    color: #FFFFFF;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+}
+footer {
+    background-image: url("../img/city-road.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+h1, h3 {
+    font-family: 'Rock Salt', cursive;
+}
+h1 {
+    text-align: center;
+}
+div h3 {
+    text-align: left;
+    padding: 1em;
+}
+.left-footer {
+    display: flex;
+    flex-direction: column;
+
+}
+ul {
+    list-style: none;
+}
+.info-boxes {
+    background-color: #E7E7E4;
+    padding: .5em;
+}
+#btn {
+    background-color: #f16712;
+    border: lightgrey 1px solid;
+    padding: 0.5em 1em;
+    text-transform: uppercase;
+}
