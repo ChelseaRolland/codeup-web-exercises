@@ -16,12 +16,16 @@ nav {
 }
 #logo {
     font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
 }
 ul {
     display: flex;
     list-style: none;
     margin: 0;
+    padding: 0;
     font-family: 'Work Sans', sans-serif;
+    justify-content: space-around;
 }
 
 a {
@@ -35,6 +39,7 @@ ul li a:hover {
     background-color: #3B94D9;
     color: #FFFFFF;
 }
- ul li:nth-child(5) {
+
+ul li:nth-child(6) {
      margin-left: auto;
  }
