@@ -5,13 +5,13 @@
 
 * {
     box-sizing: border-box;
-    color: #FFFFFF;
 }
 
 body, html {
     margin: 0;
     padding: 0;
     background-color: var(--bg-color);
+    color: #FFFFFF;
 }
 footer {
     background-image: url("../img/city-road.jpg");
@@ -36,17 +36,51 @@ div h3 {
 ul {
     list-style: none;
 }
-.info-boxes {
-    background-color: #E7E7E4;
-    padding: .5em;
-}
 #btn {
     background-color: #f16712;
     border: lightgrey 1px solid;
     padding: 0.5em 1em;
     text-transform: uppercase;
+    color: #FFFFFF;
 }
 form {
     padding: 1em;
     margin: 1em;
+}
+.form-width {
+    border: 0;
+    margin: 0 auto;
+}
+.form-control {
+    padding: 1em 5em;
+    margin: .5em 0;
+    background-color: #a8a894;
+    border: 0;
+}
+.form-group li {
+    text-align: left;
+}
+.footer-list-left {
+    display: flex;
+    flex-direction: column;
+}
+.footer-list-icons li a{
+    display: inline-block;
+    padding: .5em;
+}
+.footer-list-icons li a:hover {
+    background-color: #9E5A8F;
+}
+.right-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.info-boxes:nth-child(1){
+    justify-content: center;
+}
+
+::placeholder {
+    color: #FFFFFF;
+    opacity: 1;
 }
