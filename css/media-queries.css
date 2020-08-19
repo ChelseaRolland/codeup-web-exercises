@@ -1,8 +1,11 @@
 * {
     box-sizing: border-box;
+    font-family: 'Arvo', serif;
+    margin: 0;
+    padding: 0;
 }
-body {
-    margin: 1em;
+body{
+    padding: 1em;
 }
 .alert-info>a{
     background-color: lightblue;
@@ -25,13 +28,15 @@ nav>ul>li{
 nav>ul>li>a{
     padding: 1em;
     margin: 1em auto;
+    width: 100%;
     font-size: 1.5em;
     display: block;
     background-color: lightgrey;
 }
-h1 {
+header h1 {
     font-size: 3em;
     text-align: center;
+    padding: .5em;
 }
 .header-img {
     margin: auto;
@@ -41,33 +46,242 @@ h1 {
     height: 100%;
 }
 section {
-    display: flex;
-    flex-direction: column;
-    align-content: space-between;
-}
-section>p {
-    display: flex;
-    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 3em 0;
 }
 footer {
     width: 100%;
-    bottom: auto;
+    bottom: 0;
     position: absolute;
-    margin-top: 6em;
+    clear: both;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#social-media-links>ul{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+#social-media-links>ul>li{
+    list-style: none;
+}
+#social-media-links>ul>li>a{
+    padding: 1em;
+    color: black;
+    font-size: 1.5em;
+}
+#social-media-links>ul>li>a:hover{
+    background-color: black;
+    color: white;
 }
 /* Large devices (desktops, 992px and up) */
 @media screen and (min-width:992px) {
     .hidden-on-desktop {
         display: none;
     }
-    h1 {
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    nav>ul>li{
         display: inline-block;
     }
     nav>ul>li>a{
-        display: inline-block;
+        background-color: #FFFFFF;
     }
-    section {
-        display: inline-block;
-        width: 60%;
+    article{
+        display: flex;
+        justify-content: space-between;
+    }
+    .main{
+        flex-basis: 70%;
+    }
+    .sub-section{
+        flex-basis: 30%;
     }
 }
+
+/** {*/
+/*    box-sizing: border-box;*/
+/*}*/
+/*body {*/
+/*    margin: 1em;*/
+/*    font-family: 'Roboto', sans-serif;*/
+/*}*/
+/*.alert-info > a {*/
+/*    background-color: lightblue;*/
+/*    border: solid lightgray 3px;*/
+/*    display: block;*/
+/*    height: 3em;*/
+/*    line-height: 3em;*/
+/*    text-align: center;*/
+/*    text-decoration: none;*/
+/*    color: #000000;*/
+/*    margin: 1em;*/
+/*    font-size: 1.5em;*/
+/*}*/
+
+/*h1 {*/
+/*    text-align: center;*/
+/*    font-size: 3em;*/
+/*    margin-top: 0;*/
+/*}*/
+
+/*nav > ul {*/
+/*    padding: 0;*/
+/*    margin: 0;*/
+/*}*/
+
+/*nav > ul > li {*/
+/*    list-style: none;*/
+/*}*/
+
+/*nav > ul > li > a {*/
+/*    display: block;*/
+/*    height: 3em;*/
+/*    line-height: 3em;*/
+/*    background-color: lightgray;*/
+/*    text-align: center;*/
+/*    margin: 1em;*/
+/*    font-size: 1.5em;*/
+/*}*/
+
+/*.header-img > img {*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    !*margin: 1em;*!*/
+/*    !*height: 100%;*!*/
+/*    !*margin: calc(100%-2em);*!*/
+/*    !*size: 100vw;*!*/
+/*    !*width: 100vh;*!*/
+/*    !*height: 100vh;*!*/
+/*}*/
+
+/*.header-img {*/
+/*    margin: 1.5em;*/
+/*}*/
+
+/*section {*/
+/*    margin: 1em;*/
+/*}*/
+
+/*!*#main > h2 {*!*/
+/*!*    padding: 0;*!*/
+/*!*    font-weight: bolder;*!*/
+/*!*}*!*/
+
+/*p {*/
+/*    font-size: 1.5em;*/
+/*}*/
+
+/*h2 {*/
+/*    font-size: 2.5em;*/
+/*    font-weight: bolder;*/
+/*}*/
+
+/*!*.sub-section > h2 {*!*/
+/*!*    font-weight: bolder;*!*/
+/*!*}*!*/
+
+/*.sub-section {*/
+/*    font-style: italic;*/
+/*    margin-top: 2em;*/
+/*}*/
+
+/*footer {*/
+/*    !*display: flex;*!*/
+/*    !*align-items: flex-end;*!*/
+/*    margin: 6em 1em 1em 1em;*/
+/*    bottom: auto;*/
+/*    position: absolute;*/
+/*    width: 100%;*/
+/*}*/
+
+/*!* Large devices (desktops, 992px and up) *!*/
+/*@media screen and (min-width:992px) {*/
+/*    .hidden-on-desktop {*/
+/*        display: none;*/
+/*    }*/
+/*    nav {*/
+/*        background-color: #FFFFFF;*/
+/*    }*/
+/*    nav>ul{*/
+/*        display: flex;*/
+/*        justify-content: flex-end;*/
+/*    }*/
+/*    nav>ul>li{*/
+/*        display: inline-block;*/
+/*    }*/
+/*    nav>ul>li>a{*/
+/*        background-color: #FFFFFF;*/
+/*    }*/
+/*    ul.nav-links{*/
+/*        display: inline;*/
+/*        float: right;*/
+/*    }*/
+/*    h1{*/
+/*        text-align: left;*/
+/*        !*display: inline-block;*!*/
+/*        display: inline;*/
+/*        margin-top: 3em;*/
+/*        font-size: 5em;*/
+
+/*    }*/
+/*    h2{*/
+/*        margin: 0;*/
+/*        font-size: 2em;*/
+/*        line-height: 1.5em;*/
+/*        height: 1.5em;*/
+/*    }*/
+/*    section {*/
+/*        display: inline-block;*/
+/*        !*height: 3em;*!*/
+/*        !*line-height: 3em;*!*/
+/*        !*width: 60%;*!*/
+/*        !*display: flex;*!*/
+/*        !*flex-direction: column;*!*/
+/*        !*justify-content: space-evenly;*!*/
+/*        !*align-content: space-between;*!*/
+/*        !*align-items: flex-start;*!*/
+/*        !*background-color: chartreuse;*!*/
+
+/*    }*/
+/*    .main{*/
+/*        width: 60%;*/
+/*        background-color: lightblue;*/
+/*    }*/
+/*    !*.main>p, .main>h2 {*!*/
+/*    !*    width: 60%;*!*/
+/*    !*    margin-top: 0px;*!*/
+/*    !*    !*margin: auto;*!*!*/
+/*    !*    background-color: lightblue;*!*/
+/*    !*margin-bottom: 3em;*!*/
+/*    !*line-height: 1.5em;*!*/
+
+/*    !*display: flex;*!*/
+/*    !*flex-direction: column;*!*/
+/*    !*justify-content: center;*!*/
+
+/*    .sub-section {*/
+/*        width: 35%;*/
+/*        background-color: lightgreen;*/
+/*    }*/
+/*    !*.sub-section>p, .sub-section>h2 {*!*/
+/*    !*    !*display: inline-block;*!*!*/
+/*    !*    width: 35%;*!*/
+/*    !*    !*margin: auto;*!*!*/
+/*    !*    background-color: lightgreen;*!*/
+/*    !*margin-top: 3em;*!*/
+/*    !*line-height: 1.5em;*!*/
+/*    !*display: flex;*!*/
+/*    !*flex-direction: column;*!*/
+/*    !*justify-content: center;*!*/
+/*    !*.sub-section {*!*/
+/*    !*   !*display: inline-block;*!*!*/
+/*    !*    !*margin-top: 2em;*!*!*/
+/*    !*}*!*/
+/*}*/
