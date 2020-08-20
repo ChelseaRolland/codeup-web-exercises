@@ -26,3 +26,9 @@
     width: 100vw;
     opacity: 0.8;
 }
+.nav-tags {
+    width: 100vw;
+}
+.card-header{
+    margin: 1em;
+}
