@@ -50,7 +50,12 @@
 }
 .card-body{
     width: 100%;
+    /*text-align: left;*/
+    /*padding: 0;*/
 }
+/*.card-body>p{*/
+/*    padding: 1.5em,0em,0em,1.5em;*/
+/*}*/
 .heading-color{
     background-color: #0978f5;
     color: #FFFFFF;
