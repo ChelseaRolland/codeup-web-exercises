@@ -55,5 +55,10 @@
     background-color: #0978f5;
     color: #FFFFFF;
 }
+.input-group-text{
+    background-color: transparent;
+    border: none;
+    padding: .5em;
+}
 
 
