@@ -6,7 +6,11 @@
     color: #3D2E2D;
 }
 .old-italy{
-    background-image: url("../img/old-italian-city.jpg");
+    /*position: relative;*/
+}
+img{
+    width: 100%;
+    /*height: 50%;*/
 }
 .container{
     margin: 0;
@@ -30,5 +34,18 @@
     width: 100vw;
 }
 .card-header{
-    margin: 1em;
+    /*margin-top: 1em;*/
+    width: 100vw;
 }
+.card{
+    width: 100vw;
+}
+.card-body{
+    width: 100vw;
+}
+.heading-color{
+    background-color: #0978f5;
+    color: #FFFFFF;
+}
+
+
