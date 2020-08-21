@@ -46,10 +46,10 @@
 .card{
     width: 98vw;
 }
-.card-1, .card-2, .card-5, .card-6{
+.card-1, .card-2, .card-3, .card-4, .card-5, .card-6{
     width: 100%;
 }
-.card-5, .card-6{
+.card-3, .card-4, .card-5, .card-6{
     margin-bottom: 1em;
 }
 .card-body{
@@ -68,6 +68,11 @@
     background-color: transparent;
     border: none;
     padding: .5em;
+}
+.btn-secondary {
+    background-color: transparent;
+    border: none;
+    padding: 0;
 }
 
 
