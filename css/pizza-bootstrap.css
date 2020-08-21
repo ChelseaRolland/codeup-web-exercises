@@ -36,7 +36,8 @@
 }
 .nav>.nav-item>.nav-link:hover{
     color: #FFFFFF;
-    background-color: lightslategrey;
+    background-color: #41ACBA;
+    font-weight: bold;
 }
 .card-header{
     /*margin-top: 1em;*/
@@ -45,8 +46,11 @@
 .card{
     width: 98vw;
 }
-.card-1, .card-2{
+.card-1, .card-2, .card-5, .card-6{
     width: 100%;
+}
+.card-5, .card-6{
+    margin-bottom: 1em;
 }
 .card-body{
     width: 100%;
