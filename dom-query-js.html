@@ -28,7 +28,9 @@
 <button id="btn1">Change Title!</button>
 <button id="btn2">Color Me Blue!</button>
 <button id="btn3">Every Other Me Grey!</button>
-<button id="btn4">Job Complete?!</button>
+<button id="btn4">New Me Blue!</button>
+<button id="btnTest">Button-Test</button>
+<button id="btn5">Job Complete?!</button>
 
 <script>
     (function() {
@@ -36,31 +38,92 @@
         // TODO: Uncomment next line and get the main header element by id
             var mainHeader = document.getElementById("main-header");
 
+
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-            mainHeader.innerHTML = "JavaScript is Cool";
+        //     mainHeader.innerHTML = "JavaScript is Cool";
+
+        // TODO: Create a DOM Event for the change below with a button
+            var changeText = function (event) {
+                mainHeader.innerHTML = "JavaScript is Cool";
+            }
+            document.getElementById("btn1").addEventListener('click', changeText);
+
 
         // TODO: Uncomment the next line and get the sub header element by id
             var subHeader = document.getElementById("sub-header");
 
         // TODO: Set the text color of subHeader to blue
-            subHeader.style.color = "blue";
+        //     subHeader.style.color = "blue";
+
+        // TODO: Create a DOM Event for the change below with a button
+            var changeColor = function(event) {
+                subHeader.style.color = "blue";
+            }
+            document.getElementById("btn2").addEventListener('click', changeColor);
+
 
         // TODO: Uncomment the next line and get all list items
             var listItems = document.getElementsByTagName("li");
 
         // TODO: Set text color on every other list item to grey
-            for (let i = 0; i < listItems.length; i+=2) {
-                listItems[i].style.color = "grey";
+        //     for (let i = 0; i < listItems.length; i+=2) {
+        //         listItems[i].style.color = "grey";
+        //     }
+        // TODO: Create a DOM Event for the change below with a button
+            var greyChange = function(event) {
+                for (let i = 0; i < listItems.length; i+=2) {
+                    listItems[i].style.color = "grey";
+                }
             }
+            document.getElementById("btn3").addEventListener('click', greyChange);
 
         // TODO: Set text color of li with dbid = 1 to blue
-            listItems[0].style.color = "blue";
+        //     for (let i = 0; i < listItems.length; i++) {
+        //         let dataB = listItems[i].getAttribute("data-dbid");
+        //         // console.log(dataB)
+        //         if (dataB === "1") {
+        //             listItems[i].style.color = "blue";
+        //         }
+        //     }
+
+        // TODO: Create a DOM Event for the change below with a button
+            var firstBlue = function (event) {
+                for (let i = 0; i < listItems.length; i++) {
+                    let dataB = listItems[i].getAttribute("data-dbid");
+                    // console.log(dataB)
+                    if (dataB === "1") {
+                        listItems[i].style.color = "blue";
+                    }
+                }
+            }
+            document.getElementById("btn4").addEventListener('click', firstBlue);
+
+        // TODO: Create a DOM Event for the change below with a button
+            var combination = function (event) {
+                for (let i = 0; i < listItems.length; i+=2){
+                    let dataD = listItems[i].getAttribute("data-dbid");
+                    if (dataD === "1") {
+                        listItems[i].style.color = "blue";
+                    } else {
+                        listItems[i].style.color = "grey";
+                    }
+                }
+            }
+            document.getElementById("btnTest").addEventListener('click', combination);
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
             var subParagraphs = document.getElementsByClassName("sub-paragraph");
 
+
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-            subParagraphs[0].innerText = "Mission Accomplished";
+        //     subParagraphs[0].innerText = "Mission Accomplished";
+
+        // TODO: Create a DOM Event for the change below with a button
+            var jobComplete = function (event) {
+                subParagraphs[0].innerText = "Mission Accomplished";
+            }
+            document.getElementById("btn5").addEventListener('click', jobComplete);
+
     })();
 </script>
 </body>
