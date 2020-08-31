@@ -49,12 +49,29 @@
                 .setLngLat(coordinates)
                 .addTo(map)
                 .setPopup(popup);
-            popup.addTo(map);
         });
-    };
-
+    }
     placeMarkerAndPopup(benihanaInfo, mapboxToken, map);
 
+    var cheesecake = {
+        address: "7700 W Northwest Hwy, Dallas, TX 75225",
+        popupHTML: "<p>Cheesecake Factory - NW Highway, Dallas</p>"
+    }
+    var italian = {
+        address: "205 N Park Center, Dallas, TX 75225",
+        popupHTML: "<p>Maggiano's Little Italy - NorthPark Center</p>"
+    }
+    var thai = {
+        address: "4301 Bryan St #101, Dallas, TX 75204",
+        popupHTML: "<p>Bangkok City Restaurant - NW Highway, Dallas</p>"
+    }
+
+    var favResturants = [cheesecake, italian, thai];
+
+    favResturants.forEach(function(fav){
+        placeMarkerAndPopup(fav, mapboxToken, map);
+        // geocode(fav, mapboxToken);
+    })
 
 </script>
 
