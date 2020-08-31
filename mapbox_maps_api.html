@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+
+<div id='map' style='width: 400px; height: 300px;'></div>
+
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js" ></script>
+
+<script>
+    console.log("I am working");
+    mapboxgl.accessToken = mapboxToken;
+    // geocode("7775 Banner Dr, Dallas, TX 75251", mapboxToken).then(function (result) {
+    //         console.log(result);
+    //         var map = new mapboxgl.Map({
+    //             container: 'map',
+    //             style: 'mapbox://styles/mapbox/navigation-preview-night-v4', // stylesheet location
+    //             center: result, // starting position [lng, lat]
+    //             zoom: 16 // starting zoom
+    //         });
+    //         console.log(result);
+    //         map.setCenter(result);
+    //         map.setZoom(16);
+    //     });
+
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/navigation-preview-night-v4',
+        zoom: 10,
+        center: [-96.772926, 32.921806]
+    });
+
+    var benihanaInfo = {
+        address: "7775 Banner Dr, Dallas, TX 75251",
+        popupHTML: "<p>Benihana-Dallas</p>"
+    };
+
+    function placeMarkerAndPopup(info, token, map) {
+        geocode(info.address, token).then(function(coordinates) {
+            var popup = new mapboxgl.Popup()
+                .setHTML(info.popupHTML);
+            var marker = new mapboxgl.Marker()
+                .setLngLat(coordinates)
+                .addTo(map)
+                .setPopup(popup);
+            popup.addTo(map);
+        });
+    };
+
+    placeMarkerAndPopup(benihanaInfo, mapboxToken, map);
+
+
+</script>
+
+</body>
+</html>
