@@ -49,6 +49,7 @@
                 .setLngLat(coordinates)
                 .addTo(map)
                 .setPopup(popup);
+            // map.scrollZoom.enable({ around: 'center' });
         });
     }
     placeMarkerAndPopup(benihanaInfo, mapboxToken, map);
@@ -70,8 +71,11 @@
 
     favResturants.forEach(function(fav){
         placeMarkerAndPopup(fav, mapboxToken, map);
-        // geocode(fav, mapboxToken);
     })
+
+    // for (let i = 0; i < favResturants.length; i++) {
+    //     placeMarkerAndPopup(favResturants[i], mapboxToken, map);
+    // }
 
 </script>
 
