@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MapBox</title>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- Custom CSS -->
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 700px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>My First Mapbox Map!</h1>
+
+<select name="zoom-select" id="zoom-select">
+    <option selected disabled>Zoom Level</option>
+    <option value="5">Zoom Level 5</option>
+    <option value="9">Zoom Level 9</option>
+    <option value="15">Zoom Level 15</option>
+    <option value="20">Zoom Level 20</option>
+</select>
+
+<!-- The HTML element that serves as the Mapbox container -->
+<div id='map'></div>
+
+<!-- Mapbox JS -->
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+
+<script src="js/keys.js"></script>
+<!-- Mapbox Geocoder Util Methods -->
+<script src="js/mapbox-geocoder-utils.js"></script>
+
+<!-- Custom JS -->
+<script>
+    mapboxgl.accessToken = mapboxToken;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 7,
+        center: [-96.798685, 32.781214]
+    });
+
+    var restaurantArray = [
+        {address: "7700 W Northwest Hwy, Dallas, TX 75225",
+        popupHTML: "<p>Cheesecake Factory - NW Highway, Dallas</p>"
+        },
+        {address: "205 N Park Center, Dallas, TX 75225",
+         popupHTML: "<p>Maggiano's Little Italy - NorthPark Center</p>"
+        },
+        {address: "4301 Bryan St #101, Dallas, TX 75204",
+         popupHTML: "<p>Bangkok City Restaurant - NW Highway, Dallas</p>"
+    }
+    ]
+
+    // the  geocode method from mapbox-geocoder-utils.js
+    // geocode("re7775 Banner Dr, Dallas, TX 75251", mapboxToken).then(function(result) {
+    //     // console.log(result);
+    //     // map.setCenter(result);
+    //     // map.setZoom(17);
+    //
+    //     var popup = new mapboxgl.Popup()
+    //         // .setHTML("<h6>Benihanas - Dallas</h6>");
+    //         .setHTML()
+    //     var marker = new mapboxgl.Marker()
+    //         .setLngLat(result)
+    //         .addTo(map)
+    //         .setPopup(popup);
+    //
+    //     // popup.addTo(map);
+    // });
+
+    restaurantArray.forEach(function (restaurant) {
+        geocode(restaurant.address, mapboxToken).then(function (result) {
+            var popup = new mapboxgl.Popup()
+                .setHTML(restaurant.popupHTML)
+            var marker = new mapboxgl.Marker()
+                .setLngLat(result)
+                .addTo(map)
+                .setPopup(popup);
+        });
+    });
+
+    var zoomSelect = document.querySelector('#zoom-select');
+    console.log(zoomSelect);
+
+    zoomSelect.addEventListener('change', function(){
+        console.log(zoomSelect);
+        // var zoomValue = zoomSelect.options[zoomSelect.selectedIndex].value;
+        var zoomValue = zoomSelect.value;
+
+        map.setZoom(zoomValue);
+    });
+
+</script>
+
+
+
+</body>
+</html>
