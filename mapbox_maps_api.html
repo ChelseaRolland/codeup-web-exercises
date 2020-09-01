@@ -42,13 +42,14 @@
     };
 
     function placeMarkerAndPopup(info, token, map) {
-        geocode(info.address, token).then(function(coordinates) {
+        geocode(info.address, token).then(function(result) {
             var popup = new mapboxgl.Popup()
                 .setHTML(info.popupHTML);
             var marker = new mapboxgl.Marker()
-                .setLngLat(coordinates)
+                .setLngLat(result)
                 .addTo(map)
                 .setPopup(popup);
+            // popup.addTo(map);
             // map.scrollZoom.enable({ around: 'center' });
         });
     }
