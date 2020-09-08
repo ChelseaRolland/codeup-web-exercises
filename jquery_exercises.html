@@ -14,7 +14,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 text-center">
-            <h1>Working on JQuery Exercise</h1>
+            <h1 id="codeup">Working on JQuery Exercise</h1>
             <p>Interesting to see how all of this works with a simple syntax</p>
         </div>
         <div class="col-6">
@@ -33,6 +33,20 @@
                 <li class="list-items-2">How this works</li>
             </ul>
         </div>
+        <div class="col-12 text-center">
+            <h1>Example Page</h1>
+            <div class="important">
+                <h3>NOTICE</h3>
+                <p>This is an important message!</p>
+            </div>
+            <div class="not-important">
+                <h2>Lorem Ipsum</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, incididunt ut <span class="important">labore et dolore magna aliqua.</span>, quis ut aliquip ex ea commodo.
+                </p>
+            </div>
+            <p class="important">This is also very important.</p>
+        </div>
     </div>
 </div>
 
@@ -48,6 +62,8 @@
     $(document).ready(function(){
         alert("DOM has finished loading!");
     });
+    var contents = $('#codeup').html();
+    alert(contents);
 
 </script>
 
