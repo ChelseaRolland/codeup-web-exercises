@@ -15,14 +15,15 @@
     <div class="row">
         <div class="col-12 text-center">
             <h1 id="codeup">Working on JQuery Exercise</h1>
-            <p>Interesting to see how all of this works with a simple syntax</p>
+            <p id="para">Interesting to see how all of this works with a simple syntax</p>
         </div>
         <div class="col-6">
             <ul class="list" id="list-1">
-                <li class="list-items-1">Time</li>
-                <li class="list-items-1">For</li>
-                <li class="list-items-1">Some</li>
-                <li class="list-items-1">Action</li>
+                <li id="item-1" class="list-items-1">Time</li>
+<!--                jquery selected the 1st of the occurrence with 2 of the same id-->
+                <li id="item-2" class="list-items-1">For</li>
+                <li id="item-3" class="list-items-1">Some</li>
+                <li id="item-4" class="list-items-1">Action</li>
             </ul>
         </div>
         <div class="col-6">
@@ -57,25 +58,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
-<script>
-    "use strict";
-
-    $(document).ready(function(){
-        alert("DOM has finished loading!");
-    });
-
-    // var contents = $('#codeup').html();
-    // alert(contents);
-    //
-    // $('.important').css('background-color', 'yellow');
-    //
-    // $('p').css('font-size', '14px');
-    //
-    // $('.important, p').css('background-color', '#FF0');
-    //
-    // $('*').css('border', '1px solid #F00');
-
-</script>
+<script src="js/jquery_exercises.js"></script>
 
 </body>
 </html>
