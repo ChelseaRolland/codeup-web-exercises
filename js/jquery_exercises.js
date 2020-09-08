@@ -19,13 +19,37 @@
 // ID Selectors
 
 // q.3
-var contents = $('#para').html();
-alert(contents);
+// var contents = $('#para').html();
+// alert(contents);
+//
+// // q.4
+// var contents2 = $('#item-3').html();
+// alert(contents2);
+//
+// //q.5 --> It selected the 1st occurrence
+// var contents3 = $('#item-1').html();
+// alert(contents3);
 
-// q.4
-var contents2 = $('#item-3').html();
-alert(contents2);
+//Class Selectors
 
-//q.5 --> It selected the 1st occurrence
-var contents3 = $('#item-1').html();
-alert(contents3);
+// q.3
+// $('.codeup').css('border', '1px solid #f00');
+
+//Element Selectors
+
+// q.2
+$('li').css('font-size', '20px');
+
+//q.3
+$('li').css('background-color', '#D6B5AA');
+$('h1').css('background-color', '#E8BAE3');
+$('p').css('background-color', '#B2BD7D');
+
+//q.4 --> only shows the 1st instance of h1 in alert
+var header = $('h1').html();
+alert(header);
+
+//Multiple Selectors
+
+// q.1
+$('h1, p, li').css('border', '5px solid #FB8C65');
