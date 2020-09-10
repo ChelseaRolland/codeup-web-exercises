@@ -7,10 +7,10 @@
 <h1>Konami Code</h1>
 
 
-<form>
-    <span id="result"></span>
-    <input type="text" id="test-field" name="test-field" placeholder="input here"/>
-</form>
+<!--<form>-->
+<!--    <span id="result"></span>-->
+<!--    <input type="text" id="test-field" name="test-field" placeholder="input here"/>-->
+<!--</form>-->
 
 
 
@@ -18,34 +18,35 @@
 <script>
     "use strict";
 
-    $(document).keyup(function(event){
+    $(document).keyup(function(event) {
         // console.log(event.keyCode);
         // console.log(event.key);
         var code = [38,38,40,40,37,39,37,39,66,65,13];
-        var codes = [38,40,37,39,66,65,13];
-
-        // if (event.keyCode === codes[0]) {
-        //     console.log('Up')
+        // var codes = [38, 40, 37, 39, 66, 65, 13];
+        // var start = false;
+        // var count = 0;
+        //
+        // if (!start) {
+        //     if (event.keyCode === 38) {
+        //         console.log("We have started!")
+        //         start = true
+        //     }
         // }
-        // if (event.keyCode === codes[1]) {
-        //     console.log('Down')
+        // if (start) {
+        //     if (code[count] === event.keyCode) {
+        //         console.log('keyCode: ' + event.keyCode);
+        //         count++;
+        //     } else {
+        //         reset();
+        //     }
+        //     if (count === 10) {
+        //         reset();
+        //         alert("Congrats! You now have 30 lives!");
+        //         $('body').css("background-color", 'blue');
+        //     }
+        // } else {
+        //     reset();
         // }
-        // if (event.keyCode === codes[2]) {
-        //     console.log('Left')
-        // }
-        // if (event.keyCode === codes[3]) {
-        //     console.log('Right')
-        // }
-        // if (event.keyCode === codes[4]) {
-        //     console.log('B')
-        // }
-        // if (event.keyCode === codes[5]) {
-        //     console.log('A')
-        // }
-        // if (event.keyCode === codes[6]) {
-        //     alert("You got the Konami Code! You get 30 extra lives!")
-        // }
-
         switch (event.keyCode) {
             case 38:
                 console.log('UP');
@@ -72,6 +73,11 @@
             default:
                 console.log("This is not a cheat code");
         }
+
+        // function reset () {
+        //     start = false;
+        //     count = 0;
+        // }
 
     });
 </script>
