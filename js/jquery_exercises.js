@@ -38,18 +38,37 @@
 //Element Selectors
 
 // q.2
-$('li').css('font-size', '20px');
+// $('li').css('font-size', '20px');
+//
+// //q.3
+// $('li').css('background-color', '#D6B5AA');
+// $('h1').css('background-color', '#E8BAE3');
+// $('p').css('background-color', '#B2BD7D');
+//
+// //q.4 --> only shows the 1st instance of h1 in alert
+// var header = $('h1').html();
+// alert(header);
+//
+// //Multiple Selectors
+//
+// // q.1
+// $('h1, p, li').css('border', '5px solid #FB8C65');
 
-//q.3
-$('li').css('background-color', '#D6B5AA');
-$('h1').css('background-color', '#E8BAE3');
-$('p').css('background-color', '#B2BD7D');
-
-//q.4 --> only shows the 1st instance of h1 in alert
-var header = $('h1').html();
-alert(header);
-
-//Multiple Selectors
+// JQuery Events
 
 // q.1
-$('h1, p, li').css('border', '5px solid #FB8C65');
+$('#main-header').click(function (){
+    $(this).css("background-color", "#E1B185")
+});
+
+//q.2
+$('p').dblclick(function (){
+    $(this).css("font-size", "18px")
+});
+
+//q.3
+$('li').hover(function (){
+    $(this).css("color", "red");
+}, function (){
+    $(this).css("color", "black");
+});
