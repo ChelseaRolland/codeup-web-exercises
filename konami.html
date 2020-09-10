@@ -7,28 +7,28 @@
 <h1>Konami Code</h1>
 
 
-<!--<input type="text" id="test-field" name="test-field" placeholder="input here">-->
+<input type="text" id="test-field" name="test-field" placeholder="input here">
 
 <script src="js/jquery-3.5.1.min.js"></script>
-<!--<script src="js/jquery.js"></script>-->
 <script>
     "use strict";
 
     $(document).keyup(function(event){
         console.log(event.keyCode);
 
-        $(document).append(function(){
-            var konamiCode = [38,38,40,40,37,39,37,39,66,65,13];
 
-            let codeArray = [];
-
-            for (let i = 0; i < konamiCode.length; i++) {
-
-                if (konamiCode[i] === event.keyCode){
-                    codeArray.push(konamiCode[i])
-                }
-            } console.log(codeArray);
-        })
+        // $(document).append(function(event){
+        //     var konamiCode = [38,38,40,40,37,39,37,39,66,65,13];
+        //
+        //     let codeArray = [];
+        //
+        //     for (let i = 0; i < konamiCode.length; i++) {
+        //
+        //         if (konamiCode[i] === event.keyCode){
+        //             codeArray.push(konamiCode[i])
+        //         }
+        //     } console.log(codeArray);
+        // })
 
         // var konamiCode = [38,38,40,40,37,39,37,39,66,65,13];
         //
@@ -48,5 +48,7 @@
         // }
     });
 </script>
+<script src="js/jquery.js"></script>
+
 </body>
 </html>

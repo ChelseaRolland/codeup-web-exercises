@@ -4,7 +4,9 @@ $(document).ready(function(){
     console.log('Ready to go!')
 });
 
-var konamiCode = [38,38,40,40,37,39,37,39,66,65,13];
+var code = [38,38,40,40,37,39,37,39,66,65,13];
+var position = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a', 'enter'];
+
 
 
 // // var konamiCode = ['ArrowUp', 'ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight',66,65,13];
