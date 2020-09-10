@@ -59,4 +59,12 @@
 // q.1
 $('#main-header').click(function (){
     $(this).css("background-color", "#E1B185")
-})
+});
+
+//q.2
+$('p').dblclick(function (){
+    $(this).css("font-size", "18px")
+});
+
+//q.3
+
