@@ -7,49 +7,75 @@
 <h1>Konami Code</h1>
 
 
-<input type="text" id="test-field" name="test-field" placeholder="input here">
+<form>
+    <span id="result"></span>
+    <input type="text" id="test-field" name="test-field" placeholder="input here"/>
+</form>
+
+
 
 <script src="js/jquery-3.5.1.min.js"></script>
 <script>
     "use strict";
 
     $(document).keyup(function(event){
-        console.log(event.keyCode);
-        console.log(event.key);
+        // console.log(event.keyCode);
+        // console.log(event.key);
+        var code = [38,38,40,40,37,39,37,39,66,65,13];
+        var codes = [38,40,37,39,66,65,13];
 
-
-        // $(document).append(function(event){
-        //     var konamiCode = [38,38,40,40,37,39,37,39,66,65,13];
-        //
-        //     let codeArray = [];
-        //
-        //     for (let i = 0; i < konamiCode.length; i++) {
-        //
-        //         if (konamiCode[i] === event.keyCode){
-        //             codeArray.push(konamiCode[i])
-        //         }
-        //     } console.log(codeArray);
-        // })
-
-        // var konamiCode = [38,38,40,40,37,39,37,39,66,65,13];
-        //
-        // let codeArray = [];
-        //
-        // for (let i = 0; i < konamiCode.length; i++) {
-        //
-        //     if (konamiCode[i] === event.keyCode){
-        //         codeArray.push(konamiCode[i])
-        //     }
+        // if (event.keyCode === codes[0]) {
+        //     console.log('Up')
         // }
-        // console.log(codeArray);
-
-        // if (JSON.stringify(konamiCode) === JSON.stringify(codeArray))
-        // {
-        //     alert('Congrats! You have earned 30 Extra Lives!')
+        // if (event.keyCode === codes[1]) {
+        //     console.log('Down')
         // }
+        // if (event.keyCode === codes[2]) {
+        //     console.log('Left')
+        // }
+        // if (event.keyCode === codes[3]) {
+        //     console.log('Right')
+        // }
+        // if (event.keyCode === codes[4]) {
+        //     console.log('B')
+        // }
+        // if (event.keyCode === codes[5]) {
+        //     console.log('A')
+        // }
+        // if (event.keyCode === codes[6]) {
+        //     alert("You got the Konami Code! You get 30 extra lives!")
+        // }
+
+        switch (event.keyCode) {
+            case 38:
+                console.log('UP');
+                break;
+            case 40:
+                console.log('DOWN');
+                break;
+            case 37:
+                console.log('LEFT');
+                break;
+            case 39:
+                console.log('RIGHT');
+                break;
+            case 66:
+                console.log('B');
+                break;
+            case 65:
+                console.log('A');
+                break;
+            case 13:
+                console.log("You got the Konami Code! You get 30 extra lives!");
+                alert("You got the Konami Code! You get 30 extra lives!");
+                break;
+            default:
+                console.log("This is not a cheat code");
+        }
+
     });
 </script>
-<script src="js/jquery.js"></script>
+<!--<script src="js/jquery.js"></script>-->
 
 </body>
 </html>
