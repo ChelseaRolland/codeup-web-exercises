@@ -1,13 +1,35 @@
 "use strict";
 
 $(document).ready(function(){
-    console.log('Ready to go!')
+    console.log('Ready to go!');
+
+    var codes = [38,38,40,40,37,39,37,39,66,65,13];
+    var position = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a', 'enter'];
+
+    $('#test-field').keydown(function (event){
+        let codeArray = [];
+        codes.forEach(function (code) {
+            if (code === event.keyCode) {
+                codeArray.push(event.keyCode)
+            } else if (position.includes((event.key).toLowerCase())){
+                codeArray.push(event.keyCode)
+            } else {
+                console.log("This is not the correct code")
+            }
+                })
+    })
+
+
 });
 
-var code = [38,38,40,40,37,39,37,39,66,65,13];
-var position = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a', 'enter'];
 
 
+
+
+
+
+// var code = [38,38,40,40,37,39,37,39,66,65,13];
+// var position = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a', 'enter'];
 
 // // var konamiCode = ['ArrowUp', 'ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight',66,65,13];
 //
