@@ -5,6 +5,24 @@ $(document).ready(function(){
 
     var codes = [38,38,40,40,37,39,37,39,66,65,13];
     var position = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a', 'enter'];
+    var codeArray = [];
+
+    function codeChecker () {
+        for (let i = 0; i < codeArray.length; i++) {
+            if (codeArray[i] !== codes[i]){
+                codeArray = [];
+                return;
+            } else {
+                codeArray.push(codes[i]);
+            }
+        }
+        if (codeArray.length === 11) {
+            console.log("Test-Complete");
+            alert("Congrats you have 30 lives!")
+            $('body').css("background-color", "green");
+        }
+    }
+
 
     console.log(codes.length)
 

@@ -18,66 +18,65 @@
 <script>
     "use strict";
 
-    $(document).keyup(function(event) {
-        // console.log(event.keyCode);
-        // console.log(event.key);
-        var code = [38,38,40,40,37,39,37,39,66,65,13];
-        // var codes = [38, 40, 37, 39, 66, 65, 13];
-        // var start = false;
-        // var count = 0;
-        //
-        // if (!start) {
-        //     if (event.keyCode === 38) {
-        //         console.log("We have started!")
-        //         start = true
-        //     }
-        // }
-        // if (start) {
-        //     if (code[count] === event.keyCode) {
-        //         console.log('keyCode: ' + event.keyCode);
-        //         count++;
-        //     } else {
-        //         reset();
-        //     }
-        //     if (count === 10) {
-        //         reset();
-        //         alert("Congrats! You now have 30 lives!");
-        //         $('body').css("background-color", 'blue');
-        //     }
-        // } else {
-        //     reset();
-        // }
-        switch (event.keyCode) {
-            case 38:
-                console.log('UP');
-                break;
-            case 40:
-                console.log('DOWN');
-                break;
-            case 37:
-                console.log('LEFT');
-                break;
-            case 39:
-                console.log('RIGHT');
-                break;
-            case 66:
-                console.log('B');
-                break;
-            case 65:
-                console.log('A');
-                break;
-            case 13:
-                console.log("You got the Konami Code! You get 30 extra lives!");
-                alert("You got the Konami Code! You get 30 extra lives!");
-                break;
-            default:
-                console.log("This is not a cheat code");
+    $(document).ready(function() {
+        console.log('Ready to go!');
+
+
+        var codes = [38,38,40,40,37,39,37,39,66,65,13];
+        var codeArray = [];
+        // console.log(codes.length);
+
+
+        function codeChecker() {
+            for (let i = 0; i < codeArray.length; i++) {
+                if (codeArray[i] !== codes[i]) {
+                    codeArray = [];
+                    return;
+                } else {
+                    codeArray.push(codes[i]);
+                }
+            }
+            if (codeArray.length === 11) {
+                console.log("Test-Complete");
+                alert("Congrats you have 30 lives!")
+                $('body').css("background-color", "green");
+            }
         }
 
-        // function reset () {
-        //     start = false;
-        //     count = 0;
-        // }
+        $(document).keyup(function (event) {
+            console.log(event.keyCode);
+            // console.log(event.key);
+            codeChecker();
+
+            // switch (event.keyCode) {
+            //     case 38:
+            //         console.log('UP');
+            //         break;
+            //     case 40:
+            //         console.log('DOWN');
+            //         break;
+            //     case 37:
+            //         console.log('LEFT');
+            //         break;
+            //     case 39:
+            //         console.log('RIGHT');
+            //         break;
+            //     case 66:
+            //         console.log('B');
+            //         break;
+            //     case 65:
+            //         console.log('A');
+            //         break;
+            //     case 13:
+            //         console.log("You got the Konami Code! You get 30 extra lives!");
+            //         alert("You got the Konami Code! You get 30 extra lives!");
+            //         break;
+            //     default:
+            //         console.log("This is not a cheat code");
+            // }
+
+
+        });
 
     });
 </script>
