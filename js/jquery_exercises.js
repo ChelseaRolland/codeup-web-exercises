@@ -63,7 +63,7 @@ $('#main-header').click(function (){
 
 //q.2
 $('p').dblclick(function (){
-    $(this).css("font-size", "18px")
+    $('p').css("font-size", "18px")
 });
 
 //q.3
