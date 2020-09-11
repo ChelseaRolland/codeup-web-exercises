@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Konami Code</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        .congrats-gif{
+            background-image: url("https://media.giphy.com/media/3oz8xAFtqoOUUrsh7W/source.gif");
+        }
+    </style>
 </head>
 <body>
 <h1>Konami Code</h1>
 
-
+<div class="d-flex justify-content-center align-items-center">
+    <h1>YAY!</h1>
+    <div id="congrats-gif"></div>
+</div>
 
 
 <!--<form>-->
@@ -17,50 +29,10 @@
 
 
 <script src="js/jquery-3.5.1.min.js"></script>
-<!--&lt;!&ndash;<script>&ndash;&gt;-->
-<!--    // "use strict";-->
-<!--    //-->
-<!--    // $(document).ready(function() {-->
-<!--    //     console.log('Ready to go!');-->
-<!--    //-->
-<!--    //     $(document).keyup(function (event) {-->
-<!--    //         console.log(event.keyCode);-->
-<!--    //         // console.log(event.key);-->
-<!--    //         codeChecker();-->
-
-<!--            // switch (event.keyCode) {-->
-<!--            //     case 38:-->
-<!--            //         console.log('UP');-->
-<!--            //         break;-->
-<!--            //     case 40:-->
-<!--            //         console.log('DOWN');-->
-<!--            //         break;-->
-<!--            //     case 37:-->
-<!--            //         console.log('LEFT');-->
-<!--            //         break;-->
-<!--            //     case 39:-->
-<!--            //         console.log('RIGHT');-->
-<!--            //         break;-->
-<!--            //     case 66:-->
-<!--            //         console.log('B');-->
-<!--            //         break;-->
-<!--            //     case 65:-->
-<!--            //         console.log('A');-->
-<!--            //         break;-->
-<!--            //     case 13:-->
-<!--            //         console.log("You got the Konami Code! You get 30 extra lives!");-->
-<!--            //         alert("You got the Konami Code! You get 30 extra lives!");-->
-<!--            //         break;-->
-<!--            //     default:-->
-<!--            //         console.log("This is not a cheat code");-->
-<!--            // }-->
-
-
-<!--        });-->
-
-<!--    });-->
-<!--// </script>-->
-<script src="js/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<!--<script src="js/jquery.js"></script>-->
+<script src="js/konami.js"></script>
 
 </body>
 </html>

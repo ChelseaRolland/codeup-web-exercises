@@ -15,18 +15,18 @@ $(document).ready(function() {
 
         //Once the input has started and  //Comparing the Userinput to the Actual Konami Code
 
-            //Comparing the userinput to the konami code
-            if (userInput === konamiCode[count]){
-                console.log('You doing right!');
-                count++;
-            } else { //if this is not the same then it will reset the entire code
-                reset();
-            }
-            //Tell the user they got the correct code
-            if (count === konamiCode.length) {
-                console.log("You did it!")
-                youWon();
-            }
+        //Comparing the userinput to the konami code
+        if (userInput === konamiCode[count]){
+            console.log('You doing right!');
+            count++;
+        } else { //if this is not the same then it will reset the entire code
+            reset();
+        }
+        //Tell the user they got the correct code
+        if (count === konamiCode.length) {
+            console.log("You did it!")
+            youWon();
+        }
 
         function reset() {
             count = 0;
@@ -34,7 +34,7 @@ $(document).ready(function() {
 
         function youWon() {
             $('body').css('background-color', 'grey');
-            $('div').addClass('congrats-gif');
+            $('#congrats-gif').addClass('congrats-gif');
         }
 
     });
