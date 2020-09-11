@@ -13,6 +13,17 @@
     .yellow-highlight{
         background-color: yellow;
     }
+    h3 {
+        cursor: pointer;
+        /*color: #0f0;*/
+    }
+    .typography {
+        font-weight: bold;
+    }
+    .azul{
+        color: blue;
+    }
+
 </style>
 </head>
 <body>
@@ -120,9 +131,23 @@ $(document).ready(function(){
     //q.1
     $('#yellow-btn').click(function(){
         $('ul').each(function(){
-            $(this).children().last().css('background-color', 'yellow');
+            $(this).children().last().toggleClass('yellow-highlight');
+            // $(this).children().last().css('font-weight', 'bold');
         });
-    })
+    });
+
+    //q.2
+    $('h3').click(function(){
+        $(this).next().toggleClass('typography');
+        // $(this).next().css('font-weight', 'bold');
+    });
+
+    //q.3
+    $('li').click(function(){
+        $(this).parent().children().first().toggleClass('azul');
+        // $(this).parent().children().first().css('color', 'blue');
+    });
+
 });
 
 </script>
