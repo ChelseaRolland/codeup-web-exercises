@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>jQuery Methods | National Parks</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 <style>
     .invisible {
         visibility: hidden;
@@ -17,17 +20,36 @@
         cursor: pointer;
         /*color: #0f0;*/
     }
-    .typography {
+    .bold-text {
         font-weight: bold;
     }
     .azul{
         color: blue;
     }
 
+    /*Bonus*/
+
+    .picture {
+        border: 5px solid #6F5C5D;
+        height: 150px;
+    }
+    #pic-1 {
+        content: url("https://media.giphy.com/media/26FfbmDR2jynW1xEk/giphy.gif");
+    }
+    #pic-2 {
+        content: url("https://media.giphy.com/media/YlIQE597bHgtCrsZuM/giphy.gif");
+    }
+    #pic-3 {
+        content: url("https://media.giphy.com/media/dhCx7EyeGYD7O/giphy.gif");
+    }
+    button{
+        cursor: pointer;
+    }
+
 </style>
 </head>
 <body>
-
+<div class="container">
 <a href="#" id="magic">Magic</a>
 
 <h1>Top 10 National Parks</h1>
@@ -85,6 +107,46 @@
 <button id="yellow-btn">Highlight</button>
 
 
+</div>
+<br>
+
+<div class="container text-center">
+
+    <h1>JQuery Traversing Exercise</h1>
+
+<div class="container d-flex justify-content-around">
+    <div class="picture d-inline" id="pic-1"></div>
+    <div class="picture d-inline" id="pic-2"></div>
+    <div class="picture d-inline" id="pic-3"></div>
+</div>
+
+    <br>
+
+<div class="container d-flex justify-content-around">
+    <button id="left">Swap</button>
+    <button id="center">Swap</button>
+    <button id="right">Swap</button>
+</div>
+    <br>
+
+    <button id="reset">Reset</button>
+
+    <br>
+
+    <div class="container">
+    <p>BONUS</p>
+    <p>Create 3 divs that each look like a picture frame. Each one should have a unique background image and a button underneath that swaps the image from the frame. Use the traversing functions of jQuery to accomplish this.</p>
+    <p>The rules are the following:</p>
+    <ul>
+        <li>The left frame swaps to the right and takes the image from the frame in the center.</li>
+        <li>The center frame swaps randomly to either the left or right.</li>
+        <li>The right frame swaps to the left and takes the image from the frame in the center.
+        </li>
+    </ul>
+    </div>
+
+</div>
+
 <!--<dl>-->
 <!--    <dt>Crater Lake</dt>-->
 <!--    <dd>Located in Oregon USA</dd>-->
@@ -109,6 +171,8 @@
 <!--</dl>-->
 
 <script src="js/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 <script>
 "use strict";
 $(document).ready(function(){
@@ -130,22 +194,35 @@ $(document).ready(function(){
 
     //q.1
     $('#yellow-btn').click(function(){
-        $('ul').each(function(){
+        $('ul').each(function(){ //you can put in the parameters of index, element for .each()
             $(this).children().last().toggleClass('yellow-highlight');
             // $(this).children().last().css('font-weight', 'bold');
+            // $(element).children().last().css('font-weight', 'bold');
         });
+
     });
 
     //q.2
     $('h3').click(function(){
-        $(this).next().toggleClass('typography');
-        // $(this).next().css('font-weight', 'bold');
+        $(this).next().children().toggleClass('bold-text');
+        // $(this).next().children().css('font-weight', 'bold');
     });
 
     //q.3
     $('li').click(function(){
         $(this).parent().children().first().toggleClass('azul');
         // $(this).parent().children().first().css('color', 'blue');
+    });
+
+    // BONUS -->still working on this
+    $('#left').click(function(){
+        $('#pic-1').css('border-radius', '50%');
+    });
+    $('#center').click(function(){
+        $('#pic-2').css('border-radius', '50%');
+    });
+    $('#right').click(function(){
+        $('#pic-3').css('border-radius', '50%');
     });
 
 });
