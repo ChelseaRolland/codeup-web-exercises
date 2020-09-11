@@ -21,28 +21,6 @@
     $(document).ready(function() {
         console.log('Ready to go!');
 
-
-        var codes = [38,38,40,40,37,39,37,39,66,65,13];
-        var codeArray = [];
-        // console.log(codes.length);
-
-
-        function codeChecker() {
-            for (let i = 0; i < codeArray.length; i++) {
-                if (codeArray[i] !== codes[i]) {
-                    codeArray = [];
-                    return;
-                } else {
-                    codeArray.push(codes[i]);
-                }
-            }
-            if (codeArray.length === 11) {
-                console.log("Test-Complete");
-                alert("Congrats you have 30 lives!")
-                $('body').css("background-color", "green");
-            }
-        }
-
         $(document).keyup(function (event) {
             console.log(event.keyCode);
             // console.log(event.key);
