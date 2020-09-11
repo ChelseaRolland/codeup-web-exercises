@@ -74,20 +74,18 @@
 $(document).ready(function(){
     console.log("Ready to Go!");
 
-// $('dd').addClass('invisible');
+    // $('dd').addClass('invisible');
 
-$('#magic').click(function(){
-    $('dd').toggleClass('invisible');
+    $('#magic').click(function(event){
+        event.preventDefault();
+        $('dd').toggleClass('invisible');
+    });
+
+    // Bonus
+    $('dt').click(function(){
+        $(this).toggleClass('highlight');
+    });
 });
-
-// Bonus
-$('dt').click(function(){
-    // $(this).addClass('highlight');
-    $(this).toggleClass('highlight');
-});
-
-
-})
 
 </script>
 
