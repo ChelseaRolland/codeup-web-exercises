@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Methods | National Parks</title>
+<style>
+    .invisible {
+        visibility: hidden;
+    }
+    .highlight{
+        background-color: #0fb784;
+    }
+</style>
+</head>
+<body>
+
+<a href="#" id="magic">Magic</a>
+
+<h1>Top 10 National Parks</h1>
+
+<!--Definition List of National Parks-->
+<dl>
+    <dt>Crater Lake</dt>
+    <dd>Located in Oregon USA</dd>
+    <dt>Glacier</dt>
+    <dd>Located in Montana</dd>
+    <dt>Big Ben</dt>
+    <dd>Located in Texas</dd>
+    <dt>Haleakala</dt>
+    <dd>Located in Hawaii</dd>
+    <dt>Yosemite</dt>
+    <dd>Located in California</dd>
+    <dt>Redwood Forest</dt>
+    <dd>Located in California</dd>
+    <dt>Carlsbad Caverns</dt>
+    <dd>Located in New Mexico</dd>
+    <dt>Guadalupe Mountains</dt>
+    <dd>Located in Texas</dd>
+    <dt>Glacier Bay</dt>
+    <dd>Located in Alaska</dd>
+    <dt>Grand Canyon</dt>
+    <dd>Located in Arizona</dd>
+</dl>
+
+
+<h1>Top 10 FAQ Questions about National Parks</h1>
+<dl>
+    <dt>How do I obtain a park entrance pass?</dt>
+    <dd>Answer Here!</dd>
+    <dt>Where can I find a park map?</dt>
+    <dd>Answer Here!</dd>
+    <dt>How do I make reservations for camping/lodging in national parks?</dt>
+    <dd>Answer Here!</dd>
+    <dt>How do I reserve a tour in a park?</dt>
+    <dd>Answer Here!</dd>
+    <dt>Can I bring my pet to a national park?</dt>
+    <dd>Answer Here!</dd>
+    <dt>Can I bring my service dog to a national park?</dt>
+    <dd>Answer Here!</dd>
+    <dt>What do I need to know about driving off road in national parks?</dt>
+    <dd>Answer Here!</dd>
+    <dt>What are concessions?</dt>
+    <dd>Answer Here!</dd>
+    <dt>How do I apply for a job with the National Park Service?</dt>
+    <dd>Answer Here!</dd>
+    <dt>Where do I find out about grant and cooperative agreement programs and opportunities?</dt>
+    <dd>Answer Here!</dd>
+</dl>
+
+
+<script src="js/jquery-3.5.1.min.js"></script>
+<script>
+"use strict";
+$(document).ready(function(){
+    console.log("Ready to Go!");
+
+// $('dd').addClass('invisible');
+
+$('#magic').click(function(){
+    $('dd').toggleClass('invisible');
+});
+
+// Bonus
+$('dt').click(function(){
+    // $(this).addClass('highlight');
+    $(this).toggleClass('highlight');
+});
+
+
+})
+
+</script>
+
+</body>
+</html>
