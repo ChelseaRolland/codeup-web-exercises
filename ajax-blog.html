@@ -30,7 +30,21 @@
                 console.log(data[i].date);
 
 
-                // console.log(data[i].categories[j]);
+                // html += "<div class=\"card\" style=\"width: 18rem;\">\n" +
+                //     "  <img class=\"card-img-top\" src=\"img/pexels-alex-azabache-3214958.jpg\" alt=\"Card image cap\">\n" +
+                //     "  <div class=\"card-body\">\n" +
+                //     "    <h5 class=\"card-title\">"+data[i].title+"</h5>\n" +
+                //     "<h6 class=\"card-subtitle mb-2 text-muted\">"+data[i].date+"</h6>" +
+                //     "    <p class=\"card-text\">"+data[i].content+"</p>\n" +
+                //     "    <a href=\"#\" class=\"btn btn-primary\">Next Post</a>\n" +
+                //     "  </div>\n" +
+                //     "</div>"
+                //
+                // for (let j = 0; j < data[i].categories.length; j++){
+                //     console.log(data[i].categories[j]);
+                //     html += "<a href=\"#\" class=\"card-link\">"+data[i].categories[j]+"</a>"
+                // }
+
 
                 html += "<div class=\"card\" style=\"width: 18rem;\">\n" +
                     "  <img class=\"card-img-top\" src=\"img/pexels-alex-azabache-3214958.jpg\" alt=\"Card image cap\">\n" +
@@ -38,14 +52,21 @@
                     "    <h5 class=\"card-title\">"+data[i].title+"</h5>\n" +
                     "<h6 class=\"card-subtitle mb-2 text-muted\">"+data[i].date+"</h6>" +
                     "    <p class=\"card-text\">"+data[i].content+"</p>\n" +
-                    "    <a href=\"#\" class=\"btn btn-primary\">Next Post</a>\n" +
-                    "  </div>\n" +
-                    "</div>"
+                    "<h6 class=\"card-subtitle mb-2 mr-1 text-muted d-inline-block\">Tags:</h6>"
 
                 for (let j = 0; j < data[i].categories.length; j++){
                     console.log(data[i].categories[j]);
-                    html += "<a href=\"#\" class=\"card-link\">"+data[i].categories[j]+"</a>"
+                    html += "<a href=\"#\" class=\"card-link ml-auto p-1\">"+data[i].categories[j]+"</a>"
                 }
+                html +=
+                    "    <a href=\"#\" class=\"btn btn-primary d-block\">Next Post</a>\n" +
+                    "  </div>\n" +
+                    "</div>"
+
+                // for (let j = 0; j < data[i].categories.length; j++){
+                //     console.log(data[i].categories[j]);
+                //     html += "<a href=\"#\" class=\"card-link\">"+data[i].categories[j]+"</a>"
+                // }
             }
 
             $('#posts').append(html);
