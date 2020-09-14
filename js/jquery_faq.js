@@ -66,10 +66,10 @@ $(document).ready(function(){
     });
 
     //q.3
-    $('#register-link').delay(8000).fadeIn();
+    $('#register-link').fadeIn(4000);
     // $('#register').hide().fadeIn(8000);
     // window.setTimeout(function (){
-    //     $('#register-link').fadeIn(8000)
+    //     $('h2').fadeIn()
     // }, 8000);
 
     // $('#myModal').on('show.bs.modal', function (e) {
