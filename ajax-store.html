@@ -2,6 +2,12 @@
 <html>
 <head>
     <title>Online Store</title>
+<!--    <style>-->
+<!--        .invisible {-->
+<!--            display: none;-->
+<!--        }-->
+
+<!--    </style>-->
 </head>
 <body>
 
@@ -17,15 +23,9 @@
         </tr>
     </thead>
     <tbody id="insertProducts"></tbody>
-<!--    <tr>-->
-<!--        <td>data[i].title</td>-->
-<!--        <td>data[i].quantity</td>-->
-<!--        <td>data[i].price</td>-->
-<!--        <td>data[i].categoties[0]</td>-->
-<!--        <td>data[i].categoties[1]</td>-->
-<!--        <td>data[i].categoties[2]</td>-->
-<!--    </tr>-->
 </table>
+
+<button id="refresh">Refresh</button>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="data/inventory.json"></script>
@@ -34,7 +34,7 @@
     "use strict";
     // TODO: Create an AJAX GET request for the file under data/inventory.json
     //     $.ajax("data/inventory.json").done(onSuccess)
-        $.get("data/inventory.json").done(onSuccess)
+    //     $.get("data/inventory.json").done(onSuccess)
     // $.get("data/inventory.json").done(function(){
     //     console.log("Hello!")
     // })
@@ -43,8 +43,7 @@
     //             its contents and fields
     //       HINT: You will want to target #insertProducts for your new HTML elements
         let html = "";
-        function onSuccess(data) {
-            // console.log(data.length);
+        $.get("data/inventory.json").done(function(data){
             console.log(data);
             //sorting out each object from the array
             for (let i = 0; i < data.length; i++){
@@ -55,12 +54,11 @@
                 console.log(data[i].categories[2]);
                 console.log(data[i].price);
 
-                // html += "<tr>" +
-                //     "        <td>data[i].title</td>" +
-                //     "        <td>data[i].quantity</td>" +
-                //     "        <td>data[i].price</td>" +
-                //     "        <td>data[i].categories[0]</td>" +
-                //     "    </tr>";
+                // console.log(typeof data[i].categories[1])
+                // console.log(typeof data[i].categories[2])
+
+                console.log('categories array: ',data[i].categories.length);
+
 
                 html += "    <tr>\n" +
                     "        <td>"+data[i].title+"</td>\n" +
@@ -70,9 +68,60 @@
                     "        <td>"+data[i].categories[1]+"</td>\n" +
                     "        <td>"+data[i].categories[2]+"</td>\n" +
                     "    </tr>";
+                //
+
+                // for (let j = 0; j < data[i].categories.length; j++) {
+                //     if (typeof data[i].categories[j] === "undefined") {
+                //         $('td').addClass('invisible');
+                //     }
+                // }
+                // }
             }
             $('#insertProducts').append(html);
-        }
+        })
+
+        // function onSuccess(data) {
+        //     // console.log(data.length);
+        //     console.log(data);
+        //     //sorting out each object from the array
+        //     for (let i = 0; i < data.length; i++){
+        //         console.log(data[i].title);
+        //         console.log(data[i].quantity);
+        //         console.log(data[i].categories[0]);
+        //         console.log(data[i].categories[1]);
+        //         console.log(data[i].categories[2]);
+        //         console.log(data[i].price);
+        //
+        //         // console.log(typeof data[i].categories[1])
+        //         // console.log(typeof data[i].categories[2])
+        //
+        //         console.log('categories array: ',data[i].categories.length);
+        //
+        //
+        //         html += "    <tr>\n" +
+        //             "        <td>"+data[i].title+"</td>\n" +
+        //             "        <td>"+data[i].quantity+"</td>\n" +
+        //             "        <td>"+"$"+data[i].price+"</td>\n" +
+        //             "        <td>"+data[i].categories[0]+"</td>\n" +
+        //             "        <td>"+data[i].categories[1]+"</td>\n" +
+        //             "        <td>"+data[i].categories[2]+"</td>\n" +
+        //             "    </tr>";
+        //         //
+        //
+        //         // for (let j = 0; j < data[i].categories.length; j++) {
+        //         //     if (typeof data[i].categories[j] === "undefined") {
+        //         //         $('td').addClass('invisible');
+        //         //     }
+        //         // }
+        //         // }
+        //     }
+        //     $('#insertProducts').append(html);
+        // }
+
+        $('#refresh').click(function(){
+            // e.preventDefault();
+            $('body').load('#insertProducts');
+        })
 
 })();
 </script>

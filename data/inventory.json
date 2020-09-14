@@ -30,5 +30,34 @@
             "tool"
         ],
         "price": 10
+    },
+    {
+        "title": "Chainsaw",
+        "quantity": 15,
+        "categories": [
+            "tool",
+            "tree cutter"
+        ],
+        "price": 75
+    },
+    {
+        "title": "Water Hose",
+        "quantity": 57,
+        "categories": [
+            "tool",
+            "watering"
+        ],
+        "price": 8
+    },
+    {
+        "title": "Bug Spray",
+        "quantity": 101,
+        "categories": [
+            "tool",
+            "bugs",
+            "environmentally safe"
+        ],
+        "price": 5
     }
+
 ]
