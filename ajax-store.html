@@ -18,31 +18,30 @@
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-        <h1 class="text-center bg-secondary text-white">My Tool Store</h1>
-        </div>
-        <div class="col-12 text-center" id="products">
-            <div class="row text-center" id="insertProducts"></div>
-            <button class="btn btn-primary" id="refresh">Refresh</button>
-        </div>
-    </div>
-</div>
-<!--<table id="products">-->
-<!--    <thead>-->
-<!--        <tr>-->
-<!--            <th>Title</th>-->
-<!--            <th>Quantity</th>-->
-<!--            <th>Price</th>-->
-<!--            <th>Categories</th>-->
-<!--        </tr>-->
-<!--    </thead>-->
-<!--    <tbody class="text-center d-flex justify-content-around" id="insertProducts"></tbody>-->
-<!--    <button id="refresh">Refresh</button>-->
-<!--</table>-->
+<!--<div class="container">-->
+<!--    <div class="row">-->
+<!--        <div class="col-12">-->
+<!--        <h1 class="text-center bg-secondary text-white">My Tool Store</h1>-->
+<!--        </div>-->
+<!--        <div class="col-12 text-center" id="products">-->
+<!--            <div class="row text-center" id="insertProducts"></div>-->
+<!--            <button class="btn btn-primary" id="refresh">Refresh</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<table class="text-center bg-light" id="products">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Categories</th>
+        </tr>
+    </thead>
+    <tbody class="border" id="insertProducts"></tbody>
+</table>
 
-<!--<button id="refresh">Refresh</button>-->
+<button id="refresh">Refresh</button>
 
 
 <script src="js/jquery-3.5.1.min.js"></script>
@@ -61,85 +60,97 @@
     //       HINT: Your data should come back as a JSON object; use console.log() to inspect
     //             its contents and fields
     //       HINT: You will want to target #insertProducts for your new HTML elements
-        let html = "";
-        $.get("data/inventory.json").done(function(data){
-            console.log(data);
+    //     $.get("data/inventory.json").done(function(data){
+            // console.log(data);
+            // let html = "";
             //sorting out each object from the array
-            for (let i = 0; i < data.length; i++){
-                console.log(data[i].title);
-                console.log(data[i].quantity);
-                console.log(data[i].categories[0]);
-                console.log(data[i].categories[1]);
-                console.log(data[i].categories[2]);
-                console.log(data[i].price);
+            // for (let i = 0; i < data.length; i++){
 
-                // console.log(typeof data[i].categories[1])
-                // console.log(typeof data[i].categories[2])
+        //         html += "<div class=\"card-group col-6\">" +
+        //             "<div class=\"card test bg-light\" style=\"width: 18rem;\">\n"
+        //
+        //         switch ((data[i].title).toLowerCase()) {
+        //             case "hammer":
+        //                 html += "<img src=\"img/hammer.jpg\" class=\"card-img-top sizing\" alt=\"...\">";
+        //                 break;
+        //             case "drill":
+        //                 html += "<img src=\"img/drill.jpg\" class=\"card-img-top sizing\" alt=\"...\">";
+        //                 break;
+        //             case "mower":
+        //                 html += "<img src=\"img/riding-mower.jpg\" class=\"card-img-top sizing\" alt=\"...\">";
+        //                 break;
+        //             case "screwdrivers":
+        //                 html += "<img src=\"img/screwdriver.jpg\" class=\"card-img-top sizing\" alt=\"...\">";
+        //                 break;
+        //             case "chainsaw":
+        //                 html += "<img src=\"img/chainsaw.jpeg\" class=\"card-img-top sizing\" alt=\"...\">";
+        //                 break;
+        //             case "water hose":
+        //                 html += "<img src=\"img/waterhose.jpg\" class=\"card-img-top sizing\" alt=\"...\">";
+        //                 break;
+        //             case "bug spray":
+        //                 html += "<img src=\"img/bug-spray.jpg\" class=\"card-img-top sizing\" alt=\"...\">";
+        //                 break;
+        //             default:
+        //                 html += "<img src=\"https://media.giphy.com/media/Qw1acdtxOfrFDd2uti/giphy.gif\" class=\"card-img-top sizing\" alt=\"...\">";
+        //                 break;
+        //         }
+        //
+        //         html +=    "    <div class=\"card-body\">\n" +
+        //             "      <h5 class=\"card-title\"><a href='#'>"+data[i].title+"</a></h5>\n" +
+        //             "      <p class=\"card-text\">"+"$"+(data[i].price).toFixed(2)+"</p>\n" +
+        //             "      <p class=\"card-text\"><small class=\"text-muted\">Quantity: "+data[i].quantity+"</small></p>\n" +
+        //             "      <p class=\"card-text d-inline-block text-muted\">Categories: </p>\n"
+        //
+        //         for (let j = 0; j < data[i].categories.length; j++) {
+        //             html += "<a href=\"#\" class=\"card-link ml-auto p-1 text-warning\">"+data[i].categories[j]+"</a>"
+        //                 }
+        //
+        //         html += "    </div>\n" +
+        //             "  </div>" +
+        //             "</div>"
+        //
+        //     }
+        //     $('#insertProducts').html(html);
+        // });
+                var url = "data/inventory.json";
 
-                console.log('categories array: ',data[i].categories.length);
-
-                // <table id="products">
-                // // html += "    <tr>\n" +
-                // //     "        <td>"+data[i].title+"</td>\n" +
-                // //     "        <td>"+data[i].quantity+"</td>\n" +
-                // //     "        <td>"+"$"+data[i].price+"</td>\n" +
-                // //     "        <td>"+data[i].categories[0]+"</td>\n" +
-                // //     "        <td>"+data[i].categories[1]+"</td>\n" +
-                // //     "        <td>"+data[i].categories[2]+"</td>\n" +
-                // //     "    </tr>";
-                // // //
-
-                html += "<div class=\"card-group col-6\">" +
-                    "<div class=\"card test bg-light\" style=\"width: 18rem;\">\n"
-
-                switch ((data[i].title).toLowerCase()) {
-                    case "hammer":
-                        html += "<img src=\"img/hammer.jpg\" class=\"card-img-top sizing\" alt=\"...\">";
-                        break;
-                    case "drill":
-                        html += "<img src=\"img/drill.jpg\" class=\"card-img-top sizing\" alt=\"...\">";
-                        break;
-                    case "mower":
-                        html += "<img src=\"img/riding-mower.jpg\" class=\"card-img-top sizing\" alt=\"...\">";
-                        break;
-                    case "screwdrivers":
-                        html += "<img src=\"img/screwdriver.jpg\" class=\"card-img-top sizing\" alt=\"...\">";
-                        break;
-                    case "chainsaw":
-                        html += "<img src=\"img/chainsaw.jpeg\" class=\"card-img-top sizing\" alt=\"...\">";
-                        break;
-                    case "water hose":
-                        html += "<img src=\"img/waterhose.jpg\" class=\"card-img-top sizing\" alt=\"...\">";
-                        break;
-                    case "bug spray":
-                        html += "<img src=\"img/bug-spray.jpg\" class=\"card-img-top sizing\" alt=\"...\">";
-                        break;
-                    default:
-                        html += "<img src=\"https://media.giphy.com/media/Qw1acdtxOfrFDd2uti/giphy.gif\" class=\"card-img-top sizing\" alt=\"...\">";
-                        break;
-                }
-
-                html +=    "    <div class=\"card-body\">\n" +
-                    "      <h5 class=\"card-title\"><a href='#'>"+data[i].title+"</a></h5>\n" +
-                    "      <p class=\"card-text\">"+"$"+(data[i].price).toFixed(2)+"</p>\n" +
-                    "      <p class=\"card-text\"><small class=\"text-muted\">Quantity: "+data[i].quantity+"</small></p>\n" +
-                    "      <p class=\"card-text d-inline-block text-muted\">Categories: </p>\n"
-
-                for (let j = 0; j < data[i].categories.length; j++) {
-                    html += "<a href=\"#\" class=\"card-link ml-auto p-1 text-warning\">"+data[i].categories[j]+"</a>"
-                        }
-
-                html += "    </div>\n" +
-                    "  </div>" +
-                    "</div>"
-
-            }
-            $('#insertProducts').append(html);
+        $.get(url).done(function(inventory){
+            let html = "";
+            inventory.forEach(function(tool){
+                html += "<tr class='border'>\n" +
+                    "<td>"+tool.title+"</td>"+
+                    "<td>"+tool.quantity+"</td>"+
+                    "<td> $"+(tool.price).toFixed(2)+"</td>"+
+                    "<td>"+tool.categories+"</td>"+
+                    "</tr>";
+            });
+            $("#insertProducts").append(html);
         });
 
-        $('#refresh').click(function(){
-            $('body').load('#insertProducts');
-        })
+        // $('#refresh').click(function(){
+        //     // $('body').load('#insertProducts');
+        //     $("#insertProducts").empty().html(html);
+        // });
+
+    function loadTable(){
+        $.get(url).done(function(inventory){
+            let html = "";
+            inventory.forEach(function(tool){
+                html += "<tr class='border'>\n" +
+                    "<td>"+tool.title+"</td>"+
+                    "<td>"+tool.quantity+"</td>"+
+                    "<td>$"+(tool.price).toFixed(2)+"</td>"+
+                    "<td>"+tool.categories+"</td>"+
+                    "</tr>";
+            });
+            $("#insertProducts").empty().html(html);
+        });
+    }
+
+    $("#refresh").click(function(){
+        loadTable();
+    });
 
 })();
 </script>
