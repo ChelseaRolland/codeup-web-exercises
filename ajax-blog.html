@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&family=Unica+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        body {
+            height: 100%;
+            background-image: url("img/pexels-mateusz-sałaciak-4275885.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.85;
+        }
+        .blog-text{
+            font-family: 'Baloo Chettan 2', cursive;
+        }
+
+        * {
+            font-family: 'Unica One', cursive;
+        }
+        .blog-heading:hover {
+            /*background-color: #242E77;*/
+            color: #242E77;
+        }
+        h1:hover{
+            color: #FFFFFF;
+        }
+
+    </style>
+</head>
+<body>
+
+<!--<div class="bg-image"></div>-->
+
+<main class="main-content">
+    <div class="bg-image"></div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <a class="navbar-brand" href="#"><i class="fas fa-suitcase-rolling"></i> Curious Case</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Blog <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Countries</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Gaia</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <h1 class="text-center">Curious Case of the Travels</h1>
+    <div class="container d-flex justify-content-around">
+
+        <div class="d-flex" id="posts"></div>
+    </div>
+</main>
+
+
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="https://kit.fontawesome.com/662caa46d6.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="data/blog.json"></script>
+<script>
+    (function() {
+        "use strict";
+       $.get("data/blog.json").done(function(data){
+            console.log(data);
+            let html = "";
+            for (let i = 0; i < data.length; i++) {
+                console.log(data[i].title);
+                console.log(data[i].content);
+                console.log(data[i].date);
+
+                //setting up the card for blog posts
+                html += "<div class=\"card test bg-secondary text-white\" style=\"width: 18rem;\">\n"
+
+                //Every other picture will be shift between these two
+                if (i % 2 === 0) {
+                    html += "<img class=\"card-img-top img\" src=\"img/pexels-alex-azabache-3214958.jpg\" alt=\"Card image cap\">"
+                } else {
+                    html += "<img class=\"card-img-top img\" src=\"img/pexels-simon-migaj-885880.jpg\" alt=\"Card image cap\">"
+                }
+
+                //completing the card body with data information from blog.json file
+                html +=
+                    "  <div class=\"card-body text-center\">\n" +
+                    "    <h3 class=\"card-title blog-heading\">"+data[i].title+"</h3>\n" +
+                    "<h6 class=\"card-subtitle mb-2 text-warning\">"+data[i].date+"</h6>" +
+                    "    <p class=\"card-text blog-text\">"+data[i].content+"</p>\n" +
+                    "<h6 class=\"card-subtitle mb-2 mr-1 text-light d-inline-block\">Tags:</h6>"
+
+                //ran another for-loop to generating the tags from the categories array
+                for (let j = 0; j < data[i].categories.length; j++){
+                    console.log(data[i].categories[j]);
+                    html += "<a href=\"#\" class=\"card-link ml-auto p-1 text-warning\">"+data[i].categories[j]+"</a>"
+                }
+
+                //closing out the divs with the bottom button
+                html +=
+                    "    <a href=\"#\" class=\"btn btn-primary d-block bg-info\">Next Post</a>\n" +
+                    "  </div>\n" +
+                    "</div>"
+            }
+
+            //applying directly to the html
+            $('#posts').append(html);
+       });
+
+    })();
+
+
+</script>
+
+</body>
+</html>
