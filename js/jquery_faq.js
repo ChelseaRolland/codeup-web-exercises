@@ -66,8 +66,7 @@ $(document).ready(function(){
     });
 
     //q.3
-    $('#register-link').fadeIn(4000);
-    // $('#register').hide().fadeIn(8000);
+    $("#register-link").delay(8000).fadeIn();
     // window.setTimeout(function (){
     //     $('h2').fadeIn()
     // }, 8000);
