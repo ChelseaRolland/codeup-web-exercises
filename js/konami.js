@@ -35,6 +35,7 @@ $(document).ready(function() {
         function youWon() {
             $('body').css('background-color', 'grey');
             $('#congrats-gif').addClass('congrats-gif');
+            $('h1').css('display', 'block');
         }
 
     });
