@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Weather Map | API</title>
+    <title>Redux</title>
     <link href="https://fonts.googleapis.com/css2?family=Unica+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <style>
@@ -12,105 +12,187 @@
     </style>
 </head>
 <body>
+
+<!--navbar is here-->
 <header>
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#"><i class="fas fa-binoculars"></i> Curious Weather</a>
-<!--        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
-<!--            <span class="navbar-toggler-icon"></span>-->
-<!--        </button>-->
-        <div class="" id="navbarNav">
-<!--            <div class="collapse navbar-collapse" id="navbarNav">-->
-            <ul class="nav justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Active</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li>
             </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" id="search-city" type="search" placeholder="Search City">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
         </div>
     </nav>
 </header>
 
-<main class="main-content">
+<main>
     <div class="container">
         <div class="row justify-content-center">
-            <h1 class="">Curious Weather of ...</h1>
+            <!--            website name and heading-->
+            <h1>Curious Weather of ... </h1>
+            <h1 class="d-block" id="city-name"></h1>
         </div>
-        <div class="row" id="weather-outlook"></div>
+        <!--        weather icons will be generated in this div-->
+        <div class="row justify-content-center" id="weather"></div>
+
+        <!--        mapbox api will go here-->
+        <div class="row" id="mapbox"></div>
     </div>
 </main>
 
+<!--Date and Time-->
+<p></p>
+<!--Current Weather Conditions-->
+<h3></h3>
+
+<!--Temperature-->
+<h3></h3>
+
+<!--feels-like temp-->
+<h5></h5>
+
+<!--humidity-->
+<h6></h6>
+
+<!--main weather outlook-->
+<p><span class="badge badge-light"></span></p>
 
 <script src="js/keys.js"></script>
 <script src="js/jquery-3.5.1.min.js"></script>
 <script src="https://kit.fontawesome.com/662caa46d6.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
 <script>
+    "use strict";
     (function(){
         $(document).ready(function(){
-           console.log("Hello There I am Working");
+            // console.log("We are good!");
+            const url = "http://api.openweathermap.org/data/2.5/forecast";
+            let html = "";
 
-           const url = "http://api.openweathermap.org/data/2.5/forecast";
-           $.get(url, {
-               "APPID": OPEN_WEATHER_APPID,
-               "q": "Dallas, TX, US",
-               "units": "imperial"
-           }).done(function(data){
-               console.log(data);
-               console.log("City Name: ",data.city.name);
-               console.log("Main-Weather Outlook: ",data.list[0].weather[0].main);
-               console.log("Main-Weather Description: ",data.list[0].weather[0].description);
-               console.log("Date-Time: ",data.list[0].dt_txt);
-               console.log("feels-like: ",data.list[0].main.feels_like);
-               console.log("humidity: ",data.list[0].main.humidity);
-               console.log("main temperature: ",data.list[0].main.temp);
-               console.log("high temperature: ",data.list[0].main.temp_max);
-               console.log("low temperature: ",data.list[0].main.temp_min);
-               console.log(data.list);
+            $.get(url, {
+                "APPID": OPEN_WEATHER_APPID,
+                "q": "Dallas, TX, US",
+                "units": "imperial"
+            }).done(function(data){
+                let cityName = data.city.name
+                $('#city-name').html(cityName);
 
-               let html = "";
+                for (let i = 0; i < data.list.length; i+=8) {
+                    html += "<div>" +
+                        "<p>"+data.list[i].dt_txt+"</p>"
 
-               // for (let i = 0; i < data.list.length; i++) {
-               //     html += "<div class=\"card col-3\">\n" +
-               //         "    <img src=\"...\" class=\"card-img-top\" alt=\"...\">\n" +
-               //         "    <div class=\"card-body\">\n" +
-               //         "      <h5 class=\"card-title\">Card title</h5>\n" +
-               //         "      <p class=\"card-text\">Feels Like: "+weather.main.feels_like+"</p>\n" +
-               //         "      <p class=\"card-text\"> Humidity: "+weather.main.humidity+"</p>\n" +
-               //         "      <p class=\"card-text\"> Main-Temp: "+weather.main.temp+"</p>\n" +
-               //         "      <p class=\"card-text\"><small class=\"text-muted\"> Max-Temp: "+weather.main.temp_max+"</small></p>\n" +
-               //         "      <p class=\"card-text\"><small class=\"text-muted\"> Min-Temp: "+weather.main.temp_min+"</small></p>\n" +
-               //         "      <p class=\"card-text\"><small class=\"text-muted\"> Date and Hour: "+weather.dt_txt+"</small></p>\n" +
-               //         "    </div>\n" +
-               //         "  </div>"
-               // };
-               // }
-               data.list.forEach(function(weather){
-                   console.log(weather);
-                   html += "<div class=\"card col-3\">\n" +
-                       "    <img src=\"...\" class=\"card-img-top\" alt=\"...\">\n" +
-                       "    <div class=\"card-body\">\n" +
-                       "      <h5 class=\"card-title\">"+data.city.name+"</h5>\n" +
-                       "      <p class=\"card-text\">Feels Like: "+Math.floor(weather.main.feels_like)+"°</p>\n" +
-                       "      <p class=\"card-text\"> Humidity: "+weather.main.humidity+"%</p>\n" +
-                       "      <p class=\"card-text\"> Main-Temp: "+Math.floor(weather.main.temp)+"°</p>\n" +
-                       "      <p class=\"card-text\"><small class=\"text-muted\"> Max-Temp: "+Math.floor(weather.main.temp_max)+"°</small></p>\n" +
-                       "      <p class=\"card-text\"><small class=\"text-muted\"> Min-Temp: "+Math.floor(weather.main.temp_min)+"°</small></p>\n" +
-                       "      <p class=\"card-text\"><small class=\"text-muted\"> Date and Hour: "+weather.dt_txt+"</small></p>\n" +
-                       "    </div>\n" +
-                       "  </div>"
-               });
-               $('#weather-outlook').append(html);
-           })
+                    for (let j = 0; j < data.list[i].weather.length; j++) {
+                        html += "<h3>"+data.list[i].weather[j].description+"</h3>";
+                        switch ((data.list[i].weather[j].main).toLowerCase()) {
+                            case "clear":
+                                html += "      <img src=\"img/sunny-no-clouds.gif\" class=\"img-thumbnail\>";
+                                break;
+                            case "clouds":
+                                html += "      <img src=\"img/sunny-no-clouds.gif\" class=\"img-thumbnail\>";
+                                break;
+                            case "thunderstorm":
+                                html += "      <img src=\"img/sunny-no-clouds.gif\" class=\"img-thumbnail\>";
+                                break;
+                            case "drizzle":
+                                html += "      <img src=\"img/sunny-no-clouds.gif\" class=\"img-thumbnail\>";
+                                break;
+                            case "rain":
+                                html += "      <img src=\"img/sunny-no-clouds.gif\" class=\"img-thumbnail\>";
+                                break;
+                            case "snow":
+                                html += "      <img src=\"img/sunny-no-clouds.gif\" class=\"img-thumbnail\>";
+                                break;
+                            case "mist":
+                                html += "      <img src=\"img/sunny-no-clouds.gif\" class=\"img-thumbnail\>";
+                                break;
+                            case "smoke":
+                                html += "      <img src=\"img/sunny-no-clouds.gif\" class=\"img-thumbnail\>";
+                                break;
+                            case "haze":
+                                html += "      <img src=\"img/sunny-no-clouds.gif\" class=\"img-thumbnail\>";
+                                break;
+                            case "dust":
+                                html += "      <img src=\"img/sunny-no-clouds.gif\" class=\"img-thumbnail\>";
+                                break;
+                            case "sand":
+                                html += "      <img src=\"img/sunny-no-clouds.gif\" class=\"img-thumbnail\>";
+                                break;
+                            case "fog":
+                                html += "      <img src=\"img/sunny-no-clouds.gif\" class=\"img-thumbnail\>";
+                                break;
+                            case "ash":
+                                html += "      <img src=\"img/sunny-no-clouds.gif\" class=\"img-thumbnail\>";
+                                break;
+                            case "squall":
+                                html += "      <img src=\"img/sunny-no-clouds.gif\" class=\"img-thumbnail\>";
+                                break;
+                            case "tornado":
+                                html += "      <img src=\"img/sunny-no-clouds.gif\" class=\"img-thumbnail\>";
+                                break;
+
+                            default:
+                                html += "      <img src=\"img/sunny-no-clouds.gif\" class=\"img-thumbnail\>";
+                                break;
+                        };
+                    }
+
+                    html +=    "<h3><span class=\"badge\">Temp: </span>"+Math.floor(data.list[i].main.temp)+"°</h3>" +
+                        "<h5><span class=\"badge\">Feels Like: </span>"+Math.floor(data.list[i].main.feels_like)+"°</h5>" +
+                        "<h6><span class=\"badge\">Humidity: </span>"+data.list[i].main.humidity+"%</h6>" +
+                        "</div>";
+                }
+
+                $('#weather').append(html);
+
+
+
+            });
+
+            function searchCity () {
+                $.get(url, {
+                    "APPID": OPEN_WEATHER_APPID,
+                    "q": $('#search-city').val(),
+                    "units": "imperial"
+                }).done(function(data) {
+                    $('#city-name').empty();
+
+                    let cityName = data.city.name;
+                    $('#city-name').append(cityName);
+
+                    $('#weather').empty();
+                    for (let i = 0; i < data.list.length; i += 8) {
+                        html += "<div>" +
+                            "<p>" + data.list[i].dt_txt + "</p>" +
+                            "<h3><span class=\"badge\">Temp: </span>" + Math.floor(data.list[i].main.temp) + "°</h3>" +
+                            "<h5><span class=\"badge\">Feels Like: </span>" + Math.floor(data.list[i].main.feels_like) + "°</h5>" +
+                            "<h6><span class=\"badge\">Humidity: </span>" + data.list[i].main.humidity + "%</h6>" +
+                            "</div>";
+
+                        $('#weather').append(html);
+                    };
+                });
+            };
         });
     })();
 </script>
+
 
 </body>
 </html>
