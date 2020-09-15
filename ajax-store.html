@@ -3,30 +3,37 @@
 <head>
     <title>Online Store</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<!--    <style>-->
-<!--        .invisible {-->
-<!--            display: none;-->
-<!--        }-->
+    <style>
+        /*.sizing{*/
+        /*    width: 50%;*/
+        /*    height: 100%;*/
+        /*}*/
 
-<!--    </style>-->
+    </style>
 </head>
 <body>
 
-<h1>My Tool Store</h1>
+<h1 class="text-center">My Tool Store</h1>
 
-<table id="products">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Categories</th>
-        </tr>
-    </thead>
-    <tbody id="insertProducts"></tbody>
-</table>
+<div class="text-center" id="products">
+    <div class="text-center" id="insertProducts"></div>
+    <button class="btn btn-primary" id="refresh">Refresh</button>
+</div>
 
-<button id="refresh">Refresh</button>
+<!--<table id="products">-->
+<!--    <thead>-->
+<!--        <tr>-->
+<!--            <th>Title</th>-->
+<!--            <th>Quantity</th>-->
+<!--            <th>Price</th>-->
+<!--            <th>Categories</th>-->
+<!--        </tr>-->
+<!--    </thead>-->
+<!--    <tbody class="text-center d-flex justify-content-around" id="insertProducts"></tbody>-->
+<!--    <button id="refresh">Refresh</button>-->
+<!--</table>-->
+
+<!--<button id="refresh">Refresh</button>-->
 
 
 <script src="js/jquery-3.5.1.min.js"></script>
@@ -38,10 +45,8 @@
 (function() {
     "use strict";
     // TODO: Create an AJAX GET request for the file under data/inventory.json
-    //     $.ajax("data/inventory.json").done(onSuccess)
-    //     $.get("data/inventory.json").done(onSuccess)
     // $.get("data/inventory.json").done(function(){
-    //     console.log("Hello!")
+    //     console.log("Hello!") --> see if it is working
     // })
     // TODO: Take the data from inventory.json and append it to the products table
     //       HINT: Your data should come back as a JSON object; use console.log() to inspect
@@ -64,29 +69,66 @@
 
                 console.log('categories array: ',data[i].categories.length);
 
+                // <table id="products">
+                // // html += "    <tr>\n" +
+                // //     "        <td>"+data[i].title+"</td>\n" +
+                // //     "        <td>"+data[i].quantity+"</td>\n" +
+                // //     "        <td>"+"$"+data[i].price+"</td>\n" +
+                // //     "        <td>"+data[i].categories[0]+"</td>\n" +
+                // //     "        <td>"+data[i].categories[1]+"</td>\n" +
+                // //     "        <td>"+data[i].categories[2]+"</td>\n" +
+                // //     "    </tr>";
+                // // //
 
-                html += "    <tr>\n" +
-                    "        <td>"+data[i].title+"</td>\n" +
-                    "        <td>"+data[i].quantity+"</td>\n" +
-                    "        <td>"+"$"+data[i].price+"</td>\n" +
-                    "        <td>"+data[i].categories[0]+"</td>\n" +
-                    "        <td>"+data[i].categories[1]+"</td>\n" +
-                    "        <td>"+data[i].categories[2]+"</td>\n" +
-                    "    </tr>";
-                //
+                html += "<div class=\"card-group\">" +
+                    "<div class=\"card test bg-light\" style=\"width: 18rem;\">\n"
 
-                // for (let j = 0; j < data[i].categories.length; j++) {
-                //     if (typeof data[i].categories[j] === "undefined") {
-                //         $('td').addClass('invisible');
-                //     }
-                // }
-                // }
+                switch ((data[i].title).toLowerCase()) {
+                    case "hammer":
+                        html += "<img src=\"img/hammer.jpg\" class=\"card-img-top sizing\" alt=\"...\">";
+                        break;
+                    case "drill":
+                        html += "<img src=\"img/drill.jpg\" class=\"card-img-top sizing\" alt=\"...\">";
+                        break;
+                    case "mower":
+                        html += "<img src=\"img/riding-mower.jpg\" class=\"card-img-top sizing\" alt=\"...\">";
+                        break;
+                    case "screwdrivers":
+                        html += "<img src=\"img/screwdriver.jpg\" class=\"card-img-top sizing\" alt=\"...\">";
+                        break;
+                    case "chainsaw":
+                        html += "<img src=\"img/chainsaw.jpeg\" class=\"card-img-top sizing\" alt=\"...\">";
+                        break;
+                    case "water hose":
+                        html += "<img src=\"img/waterhose.jpg\" class=\"card-img-top sizing\" alt=\"...\">";
+                        break;
+                    case "bug spray":
+                        html += "<img src=\"img/bug-spray.jpg\" class=\"card-img-top sizing\" alt=\"...\">";
+                        break;
+                    default:
+                        html += "<img src=\"https://media.giphy.com/media/Qw1acdtxOfrFDd2uti/giphy.gif\" class=\"card-img-top sizing\" alt=\"...\">";
+                        break;
+                }
+
+                html +=    "    <div class=\"card-body\">\n" +
+                    "      <h5 class=\"card-title\">"+data[i].title+"</h5>\n" +
+                    "      <p class=\"card-text\">"+"$"+(data[i].price).toFixed(2)+"</p>\n" +
+                    "      <p class=\"card-text\"><small class=\"text-muted\">Quantity: "+data[i].quantity+"</small></p>\n" +
+                    "      <p class=\"card-text d-inline-block text-muted\">Categories: </p>\n"
+
+                for (let j = 0; j < data[i].categories.length; j++) {
+                    html += "<a href=\"#\" class=\"card-link ml-auto p-1 text-warning\">"+data[i].categories[j]+"</a>"
+                        }
+
+                html += "    </div>\n" +
+                    "  </div>" +
+                    "</div>"
+
             }
             $('#insertProducts').append(html);
         });
 
         $('#refresh').click(function(){
-            // e.preventDefault();
             $('body').load('#insertProducts');
         })
 

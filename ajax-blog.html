@@ -11,24 +11,20 @@
             background-image: url("img/pexels-mateusz-sałaciak-4275885.jpg");
             background-repeat: no-repeat;
             background-size: cover;
-            opacity: 0.8;
+            opacity: 0.85;
         }
         .blog-text{
             font-family: 'Baloo Chettan 2', cursive;
         }
-        /*.img:hover, .img:focus, .img:active{*/
-        /*    opacity: 1 !important;*/
-        /*    !*.hvr-grow-shadow:hover, .hvr-grow-shadow:focus, .hvr-grow-shadow:active {*!*/
-        /*    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);*/
-        /*    -webkit-transform: scale(1.1);*/
-        /*    transform: scale(1.1);*/
-        /*}*/
-        /*!*}*!*/
+
         * {
             font-family: 'Unica One', cursive;
         }
         .blog-heading:hover {
-            background-color: #242E77;
+            /*background-color: #242E77;*/
+            color: #242E77;
+        }
+        h1:hover{
             color: #FFFFFF;
         }
 
@@ -96,7 +92,7 @@
                 //completing the card body with data information from blog.json file
                 html +=
                     "  <div class=\"card-body text-center\">\n" +
-                    "    <h5 class=\"card-title blog-heading\">"+data[i].title+"</h5>\n" +
+                    "    <h3 class=\"card-title blog-heading\">"+data[i].title+"</h3>\n" +
                     "<h6 class=\"card-subtitle mb-2 text-warning\">"+data[i].date+"</h6>" +
                     "    <p class=\"card-text blog-text\">"+data[i].content+"</p>\n" +
                     "<h6 class=\"card-subtitle mb-2 mr-1 text-light d-inline-block\">Tags:</h6>"
