@@ -4,6 +4,12 @@
     <title>Online Store</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <style>
+        body {
+            background-image: url("img/pexels-suntorn-somtong-1029243.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
         /*.sizing{*/
         /*    width: 50%;*/
         /*    height: 100%;*/
@@ -12,14 +18,17 @@
     </style>
 </head>
 <body>
-
-<h1 class="text-center">My Tool Store</h1>
-
-<div class="text-center" id="products">
-    <div class="text-center" id="insertProducts"></div>
-    <button class="btn btn-primary" id="refresh">Refresh</button>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+        <h1 class="text-center bg-secondary text-white">My Tool Store</h1>
+        </div>
+        <div class="col-12 text-center" id="products">
+            <div class="row text-center" id="insertProducts"></div>
+            <button class="btn btn-primary" id="refresh">Refresh</button>
+        </div>
+    </div>
 </div>
-
 <!--<table id="products">-->
 <!--    <thead>-->
 <!--        <tr>-->
@@ -80,7 +89,7 @@
                 // //     "    </tr>";
                 // // //
 
-                html += "<div class=\"card-group\">" +
+                html += "<div class=\"card-group col-6\">" +
                     "<div class=\"card test bg-light\" style=\"width: 18rem;\">\n"
 
                 switch ((data[i].title).toLowerCase()) {
@@ -111,7 +120,7 @@
                 }
 
                 html +=    "    <div class=\"card-body\">\n" +
-                    "      <h5 class=\"card-title\">"+data[i].title+"</h5>\n" +
+                    "      <h5 class=\"card-title\"><a href='#'>"+data[i].title+"</a></h5>\n" +
                     "      <p class=\"card-text\">"+"$"+(data[i].price).toFixed(2)+"</p>\n" +
                     "      <p class=\"card-text\"><small class=\"text-muted\">Quantity: "+data[i].quantity+"</small></p>\n" +
                     "      <p class=\"card-text d-inline-block text-muted\">Categories: </p>\n"
