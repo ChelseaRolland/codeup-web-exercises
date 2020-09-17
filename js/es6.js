@@ -61,7 +61,7 @@ users.forEach(user => emails.push(user.email));
 //   return names.push(user.name);
 // });
 
-users.forEach(user => emails.push(user.email));
+users.forEach(user => names.push(user.name));
 
 // TODO: replace `var` with `let` in the following declaration
 let developers = [];
