@@ -20,6 +20,9 @@
             background: -moz-linear-gradient(top left, #76D3C9, #1F8BD8);
             background: linear-gradient(to bottom right, #76D3C9, #1F8BD8);
         }
+        .card:hover{
+            filter: invert(100%);
+        }
         body {
             background-image: url("img/pexels-pixabay-209831.jpg");
             background-position: center;
@@ -50,11 +53,11 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <!--website name and heading-->
-            <h1 class="col-12 text-center m-4" id="city-name" ></h1>
+            <h1 class="col-12 text-center m-4 bg-light" id="city-name" ></h1>
         </div>
         <!--search bar and map will be here-->
         <div class="row">
-            <div class="col-4 text-center border">
+            <div class="col-4 text-center">
                 <!--search city bar will be here-->
                 <h2>Search City</h2>
                 <form class="form my-3">

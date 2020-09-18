@@ -43,7 +43,7 @@
             });
         }
 
-        searchLocation("Dallas, TX");
+        searchLocation("Lancaster, TX");
 
         let currentURL = "http://api.openweathermap.org/data/2.5/weather";
         let forecastURL = "http://api.openweathermap.org/data/2.5/forecast";
