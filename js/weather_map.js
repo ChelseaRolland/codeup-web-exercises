@@ -79,15 +79,15 @@
                 $('#city-name').html(`<i class="fas fa-location-arrow"> Curious Weather of ... ${city}`);
 
                 $('#current-weather').empty();
-                currentHTML += `<div class="card text-dark">` +
+                currentHTML += `<div class="card text-dark my-3">` +
                     `<img class="card-img" id="weather-icon" src="${iconURL}" alt="Card image"/>` +
                     `<div class="card-img-overlay">` +
-                    `<p class='card-text'>${today}</p>` +
+                    `<h4 class='card-text'>${today}</h4>` +
                     `<h1 class='card-title d-inline-block text-sizing-header'>${temp}°F</h1>` +
-                    `<p class='text-muted'>Feels like: ${feelsLike}°F</p>` +
-                    `<h5 class='card-title'>${description}</h5>`+
-                    `<p class='card-text'>Humidity: ${humidity}%</p>` +
-                    `<p class='card-text'>Wind Speed: ${wind}mph</p>` +
+                    `<h6 class='text-muted'>Feels like: ${feelsLike}°F</h6>` +
+                    `<h3 class='card-title'>${description}</h3>`+
+                    `<h6 class='card-text'>Humidity: ${humidity}%</h6>` +
+                    `<h6 class='card-text'>Wind Speed: ${wind}mph</h6>` +
                     `<p class='card-text'>`+
                     `<span>High: ${maxTemp}°F </span>` +
                     `<span>Low: ${minTemp}°F </span>`+
@@ -125,7 +125,7 @@
                     let iconURL = `https://openweathermap.org/img/wn/${icon}@2x.png`;
                     let forecastHTML = "";
 
-                    forecastHTML += `<div class="card col-3 text-dark text-center">` +
+                    forecastHTML += `<div class="card col-3 my-3 text-dark text-center">` +
                         `<img class="card-img" src="${iconURL}" alt="Card image"/>` +
                         `<div class="card-img-overlay">` +
                         `<h4 class='card-text text-underline'>${date}</h4>` +
