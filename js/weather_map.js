@@ -63,13 +63,13 @@
                 let today = (new Date()).toDateString().substring(0,10);
                 // let date = (new Date(data.dt_txt.substring(0,10))).toDateString().substring(0,10);
 
-                let temp = data.main.temp;
-                let feelsLike = data.main.feels_like;
-                let minTemp = data.main.temp_min;
-                let maxTemp = data.main.temp_max;
+                let temp = Math.floor(data.main.temp);
+                let feelsLike = Math.floor(data.main.feels_like);
+                let minTemp = Math.floor(data.main.temp_min);
+                let maxTemp = Math.floor(data.main.temp_max);
                 let humidity = data.main.humidity;
-                let wind = data.wind.speed;
-                let mainWeather = data.weather[0].main;
+                let wind = Math.floor(data.wind.speed);
+                // let mainWeather = data.weather[0].main;
                 let description = data.weather[0].description;
                 let icon = data.weather[0].icon;
                 let iconURL = `https://openweathermap.org/img/wn/${icon}@2x.png`;
@@ -80,15 +80,17 @@
 
                 $('#current-weather').empty();
                 currentHTML += `<div class="card bg-dark text-white">` +
-                    `<img class="card-img" id="weather-icon" src="" alt="Card image">` +
+                    `<img class="card-img" id="weather-icon" src="" alt="Card image"/>` +
                     `<div class="card-img-overlay">` +
                     `<p class='card-text'>${today}</p>` +
                     `<h3 class='card-title'>${temp}°F<span class='badge text-muted'>Feels like: ${feelsLike}°F</span></h3>` +
                     `<h5 class='card-title'>${description}</h5>`+
                     `<p class='card-text'>Humidity: ${humidity}%</p>` +
                     `<p class='card-text'>Wind Speed: ${wind}mph</p>` +
-                    `<p class='card-text'>Max/Min Temp: ${maxTemp}°F/${minTemp}°F</p>` +
-                    `<p class='card-text'>${today}</p>` +
+                    `<p class='card-text'>`+
+                    `<span>Max Temp: ${maxTemp}°F </span>` +
+                    `<span>Min Temp: ${minTemp}°F </span>`+
+                    `</p>`+
                     `</div>` +
                     `</div>`;
 
@@ -111,37 +113,31 @@
                 for (let i = 0; i < data.list.length; i+=8) {
                     let city = data.list[i].name;
                     let date = (new Date(data.list[i].dt_txt.substring(0,10))).toDateString().substring(0,10);
-                    let temp = data.list[i].main.temp;
-                    let feelsLike = data.list[i].main.feels_like;
-                    let minTemp = data.list[i].main.temp_min;
-                    let maxTemp = data.list[i].main.temp_max;
+                    let temp = Math.floor(data.list[i].main.temp);
+                    let feelsLike = Math.floor(data.list[i].main.feels_like);
+                    // let minTemp = Math.floor(data.list[i].main.temp_min);
+                    // let maxTemp = Math.floor(data.list[i].main.temp_max);
                     let humidity = data.list[i].main.humidity;
-                    let wind = data.list[i].wind.speed;
-                    let mainWeather = data.list[i].weather[0].main;
+                    let wind = Math.floor(data.list[i].wind.speed);
+                    // let mainWeather = data.list[i].weather[0].main;
                     let description = data.list[i].weather[0].description;
                     let icon = data.list[i].weather[0].icon;
                     let iconURL = `https://openweathermap.org/img/wn/${icon}@2x.png`;
                     let forecastHTML = "";
 
-                    console.log(icon);
-                    console.log(iconURL);
-
-
-                    forecastHTML += `<div class="card w-25 bg-dark text-white">` +
-                        `<img class="card-img" id="weather-icon" src="" alt="Card image">` +
+                    forecastHTML += `<div class="card col-3 bg-dark text-white text-center">` +
+                        `<img class="card-img" src="${iconURL}" alt="Card image"/>` +
                         `<div class="card-img-overlay">` +
                         `<p class='card-text'>${date}</p>` +
                         `<h3 class='card-title'>${temp}°F<span class='badge text-muted'>Feels like: ${feelsLike}°F</span></h3>` +
                         `<h5 class='card-title'>${description}</h5>`+
                         `<p class='card-text'>Humidity: ${humidity}%</p>` +
                         `<p class='card-text'>Wind Speed: ${wind}mph</p>` +
-                        `<p class='card-text'>Max/Min Temp: ${maxTemp}°F/${minTemp}°F</p>` +
-                        `<p class='card-text'>${date}</p>` +
                         `</div>` +
                         `</div>`;
 
                     $('#forecast-weather').append(forecastHTML);
-                    $('#weather-icon').attr("src", iconURL);
+                    $('#forecast-weather').children().first().css('display', 'none');
                 }
 
             });
