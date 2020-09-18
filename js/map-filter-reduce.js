@@ -95,4 +95,12 @@
 
         console.log(listedLang);
 
+        let uniqueLangs = users.reduce((langList, user) => {
+            for (let i = 0; i < user.languages.length; i++) {
+                if(!langList.includes(lang)) {
+                    langList.push(lang)
+                }
+            }
+        })
+
 })();
