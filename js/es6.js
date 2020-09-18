@@ -53,6 +53,7 @@ let names = [];
 //   return emails.push(user.email);
 // });
 
+//can be used with or without parentheses for 1 parameter
 users.forEach(user => emails.push(user.email));
 // const emailPush = user => emails.push(user.email);
 // users.forEach(emailPush);
@@ -61,11 +62,18 @@ users.forEach(user => emails.push(user.email));
 //   return names.push(user.name);
 // });
 
-users.forEach(user => names.push(user.name));
+//can be used with or without parentheses for 1 parameter
+users.forEach((user) => names.push(user.name));
+
+//ABOVE forEach Can be solved by 2 lines of code combined in curly braces
+users.forEach((user) => {
+  names.push(user.name);
+  email.push(user.email);
+});
 
 // TODO: replace `var` with `let` in the following declaration
 let developers = [];
-users.forEach(function(user) {
+users.forEach( (user) => {
   // TODO: rewrite the code below to use object destructuring assignment
   //       note that you can also use destructuring assignment in the function
   //       parameter definition
@@ -77,7 +85,7 @@ users.forEach(function(user) {
 
   // TODO: rewrite the assignment below to use template strings
   // developers.push(name + '\'s email is ' + email + name + ' knows ' + languages.join(', '));
-  developers.push(`${name}'s email is ${email} ${name} knows ${languages.join(', ')}`);
+  developers.push(`${name}\'s email is ${email} ${name} knows ${languages.join(', ')}`);
 });
 
 // TODO: Use `let` for the following variable
