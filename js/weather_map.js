@@ -43,7 +43,7 @@
             });
         }
 
-        searchLocation("Dallas, TX");
+        searchLocation("Lancaster, TX");
 
         let currentURL = "http://api.openweathermap.org/data/2.5/weather";
         let forecastURL = "http://api.openweathermap.org/data/2.5/forecast";
@@ -79,23 +79,23 @@
                 $('#city-name').html(`<i class="fas fa-location-arrow"> Curious Weather of ... ${city}`);
 
                 $('#current-weather').empty();
-                currentHTML += `<div class="card bg-dark text-white">` +
-                    `<img class="card-img" id="weather-icon" src="" alt="Card image"/>` +
+                currentHTML += `<div class="card text-dark my-3">` +
+                    `<img class="card-img" id="weather-icon" src="${iconURL}" alt="Card image"/>` +
                     `<div class="card-img-overlay">` +
-                    `<p class='card-text'>${today}</p>` +
-                    `<h3 class='card-title'>${temp}°F<span class='badge text-muted'>Feels like: ${feelsLike}°F</span></h3>` +
-                    `<h5 class='card-title'>${description}</h5>`+
-                    `<p class='card-text'>Humidity: ${humidity}%</p>` +
-                    `<p class='card-text'>Wind Speed: ${wind}mph</p>` +
+                    `<h4 class='card-text'>${today}</h4>` +
+                    `<h1 class='card-title d-inline-block text-sizing-header'>${temp}°F</h1>` +
+                    `<h6 class='text-muted'>Feels like: ${feelsLike}°F</h6>` +
+                    `<h3 class='card-title'>${description}</h3>`+
+                    `<h6 class='card-text'>Humidity: ${humidity}%</h6>` +
+                    `<h6 class='card-text'>Wind Speed: ${wind}mph</h6>` +
                     `<p class='card-text'>`+
-                    `<span>Max Temp: ${maxTemp}°F </span>` +
-                    `<span>Min Temp: ${minTemp}°F </span>`+
+                    `<span>High: ${maxTemp}°F </span>` +
+                    `<span>Low: ${minTemp}°F </span>`+
                     `</p>`+
                     `</div>` +
                     `</div>`;
 
                 $('#current-weather').append(currentHTML);
-                $('#weather-icon').attr("src", iconURL);
             });
         };
 
@@ -125,14 +125,14 @@
                     let iconURL = `https://openweathermap.org/img/wn/${icon}@2x.png`;
                     let forecastHTML = "";
 
-                    forecastHTML += `<div class="card col-3 bg-dark text-white text-center">` +
+                    forecastHTML += `<div class="card col-3 my-3 text-dark text-center">` +
                         `<img class="card-img" src="${iconURL}" alt="Card image"/>` +
                         `<div class="card-img-overlay">` +
-                        `<p class='card-text'>${date}</p>` +
-                        `<h3 class='card-title'>${temp}°F<span class='badge text-muted'>Feels like: ${feelsLike}°F</span></h3>` +
-                        `<h5 class='card-title'>${description}</h5>`+
-                        `<p class='card-text'>Humidity: ${humidity}%</p>` +
-                        `<p class='card-text'>Wind Speed: ${wind}mph</p>` +
+                        `<h4 class='card-text text-underline'>${date}</h4>` +
+                        `<h1 class='card-title'>${temp}°F</h1>` +
+                        `<h3 class='card-title'>${description}</h3>`+
+                        `<h6 class='card-text'>Humidity: ${humidity}%</h6>` +
+                        `<h6 class='card-text'>Wind Speed: ${wind}mph</h6>` +
                         `</div>` +
                         `</div>`;
 

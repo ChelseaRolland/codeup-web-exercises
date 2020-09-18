@@ -11,9 +11,32 @@
             font-family: 'Unica One', cursive;
         }
         #map {
-            width: 70vw;
+            width: 65vw;
             height: 50vh;
         }
+        .card {
+            background: #76D3C9;
+            background: -webkit-linear-gradient(top left, #76D3C9, #1F8BD8);
+            background: -moz-linear-gradient(top left, #76D3C9, #1F8BD8);
+            background: linear-gradient(to bottom right, #76D3C9, #1F8BD8);
+        }
+        .card:hover{
+            filter: invert(100%);
+        }
+        body {
+            background-image: url("img/pexels-pixabay-209831.jpg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: #8EBCE1;
+        }
+        .text-underline {
+            text-decoration: underline;
+        }
+        .text-sizing-header {
+            font-size: 6em;
+        }
+
     </style>
 </head>
 <body>
@@ -30,14 +53,14 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <!--website name and heading-->
-            <h1 class="col-12 text-center" id="city-name" ></h1>
+            <h1 class="col-12 text-center m-4 bg-light" id="city-name" ></h1>
         </div>
         <!--search bar and map will be here-->
         <div class="row">
-            <div class="col-4 text-center border">
+            <div class="col-4 text-center">
                 <!--search city bar will be here-->
-                <h4>Search City</h4>
-                <form class="form">
+                <h2>Search City</h2>
+                <form class="form my-3">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-city"></i></span>
@@ -48,6 +71,7 @@
                 </form>
 
                 <!--Current Weather will generate here dynamically from JS-->
+                <h2>Current Weather Outlook</h2>
                 <div id="current-weather"></div>
         </div>
         <div class="col-8">
@@ -58,7 +82,7 @@
         </div>
 
         <!--Forecast Weather will be generated dynamically from JS-->
-        <div class="row" id="forecast-weather"></div>
+        <div class="row card-deck mt-3" id="forecast-weather"></div>
     </div>
 </main>
 
