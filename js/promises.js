@@ -17,30 +17,19 @@
                     }
                 });
                     console.log("full data list: ",commitArray);
-                    let last = commitArray[0].payload.commits.pop()
+                    let last = commitArray[0].payload.commits.pop();
+                    let lastMessage = last.message;
                     console.log("last element of array: ",last);
                     console.log("last message: ",last.message);
-                    // console.log(commitArray[0].payload.commits.pop()
-                    // console.log(commitArray[0].payload.commits[(commits.length) - 1])
-
-
-                    // let repository = commitArray[0].repo.name;
-                    // let username = commitArray[0].actor.login;
-                    // let time = new Date (commitArray[0].created_at);
-                    // let recentCommitMessage = commitArray[0].payload.commits[0].message
+                    console.log("last message: ",lastMessage);
 
                     let repository = commitArray[0].repo.name;
                     let username = commitArray[0].actor.login;
                     let time = new Date (commitArray[0].created_at);
-                    let lastCommit = commitArray[0].payload.commits.pop();
-                    let recentCommitMessage = lastCommit.message;
-
-                    console.log(lastCommit);
-                    console.log(recentCommitMessage);
 
                     html += `<p><strong>User:</strong> ${username}</p>` +
                         `<p><strong>Repository:</strong> ${repository}</p>` +
-                        `<p><strong>Most Recent Commit:</strong> ${recentCommitMessage}</p>` +
+                        `<p><strong>Most Recent Commit:</strong> ${lastMessage}</p>` +
                         `<p><strong>Time:</strong> ${time}</p>`
 
                     $("#commit").append(html);
