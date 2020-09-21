@@ -51,20 +51,22 @@
 
     //q.4
     // TODO: Use .reduce to get the total years of experience from the list of users. Once you get the total of years you can use the result to calculate the average.
-        let totalExperience = users.reduce( (years, user) => {return years + user.yearsOfExperience}, 0)
+        let totalExperience = users.reduce( (totalYears, user) => {return totalYears + user.yearsOfExperience}, 0)
         let averageExperience = totalExperience / users.length;
         console.log(totalExperience);
         console.log(averageExperience);
 
     //q.5
     // TODO: Use .reduce to get the longest email from the list of users.
-        let longestEmail = emails.reduce((acc, email) => {
-            if (acc.length > email.length) {
-                return acc;
+
+        let longestEmail = emails.reduce((longest, email) => {
+            if (email.length > longest.length){
+                return email;
             }
-            return email;
+            return longest;
         }, "");
-        console.log(longestEmail);
+
+        console.log("long email reduce: ",longestEmail);
 
     //q.6
     // TODO: Use .reduce to get the list of user's names in a single string. Example: Your instructors are: ryan, luis, zach, fernando, justin.
@@ -73,34 +75,58 @@
                 return user.name;
             } return name += ", " + user.name;
         }, "");
-        console.log(userList);
+        console.log("usernames reduce: ",userList);
+
+        const everyone =  users.reduce((name, user) => {
+            if (name !== "") {
+                name += ", ";
+            }
+            return name + user.name;
+        }, "");
+
+        console.log("log out everyone: ",everyone);
 
     //BONUS
     // TODO: Use .reduce to get the unique list of languages from the list of users.
-        let langArrays = users.map((user)=> {return user.languages});
-        console.log(langArrays);
 
-        let flattenLang = langArrays.reduce((acc, lang)=>{
-            return acc.concat(lang);
-        },[]);
-
-        console.log(flattenLang);
-
-        let listedLang = flattenLang.reduce((acc, val) =>{
-           if (acc.indexOf(val) === -1){
-               acc.push(val)
-           }
-           return acc
-        }, []);
-
-        console.log(listedLang);
+    //     let langArrays = users.map((user)=> {return user.languages});
+    //     console.log(langArrays);
+    //
+    //     let flattenLang = langArrays.reduce((acc, lang)=>{
+    //         return acc.concat(lang);
+    //     },[]);
+    //
+    //     console.log(flattenLang);
+    //
+    //     let listedLang = flattenLang.reduce((acc, val) =>{
+    //        if (acc.indexOf(val) === -1){
+    //            acc.push(val)
+    //        }
+    //        return acc
+    //     }, []);
+    //
+    //     console.log(listedLang);
 
         let uniqueLangs = users.reduce((langList, user) => {
             for (let i = 0; i < user.languages.length; i++) {
-                if(!langList.includes(lang)) {
-                    langList.push(lang)
+                if(!langList.includes(user.languages[i])) {
+                    langList.push(user.languages[i])
                 }
             }
-        })
+            return langList;
+        }, []);
+
+        console.log(uniqueLangs);
+
+        let allLang = users.reduce((lang, user) => {
+            user.languages.forEach((language) => {
+                if (!lang.includes(language)) {
+                    lang.push(language);
+                }
+            });
+            return lang;
+        }, []);
+
+        console.log("allLang: ",allLang)
 
 })();
