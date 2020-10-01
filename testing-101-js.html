@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>101 JS Testing</title>
+</head>
+<body>
+<script>
+    (function(){
+        "use strict";
+
+        const books = [
+            {
+                "title": "Genetic Algorithms and Machine Learning for Programmers",
+                "price": 36.99,
+                "author": "Frances Buontempo"
+            },
+            {
+                "title": "The Visual Display of Quantitative Information",
+                "price": 38.00,
+                "author": "Edward Tufte"
+            },
+            {
+                "title": "Practical Object-Oriented Design",
+                "author": "Sandi Metz",
+                "price": 30.47
+            },
+            {
+                "title": "Weapons of Math Destruction",
+                "author": "Cathy O'Neil",
+                "price": 17.44
+            }
+        ]
+
+        function totalPriceBook(arr) {
+            let totalPrice = arr.reduce((total, current) => { return total + current.price}, 0);
+            // console.log(totalPrice);
+            return totalPrice;
+        }
+
+        console.log(totalPriceBook(books));
+
+        function highestPriceBook (arr) {
+            let highestPrice = arr.reduce((highest, curr) => {
+                if (highest.price < curr.price) {
+                    return curr
+                }
+                return highest
+            });
+            // console.log(highestPrice);
+            return highestPrice
+        }
+
+        console.log(highestPriceBook(books));
+
+        function lowestPriceBook (arr) {
+            let lowestPrice = arr.reduce((lowest, curr) => {
+                if (lowest.price > curr.price) {
+                    return curr
+                }
+                return lowest;
+            });
+            // console.log(lowestPrice)
+            return lowestPrice;
+        }
+
+        console.log(lowestPriceBook(books))
+
+        const shoppingCart = {
+            "tax": .08,
+            "items": [
+                {
+                    "title": "orange juice",
+                    "price": 3.99,
+                    "quantity": 1
+                },
+                {
+                    "title": "rice",
+                    "price": 1.99,
+                    "quantity": 3
+                },
+                {
+                    "title": "beans",
+                    "price": 0.99,
+                    "quantity": 3
+                },
+                {
+                    "title": "chili sauce",
+                    "price": 2.99,
+                    "quantity": 1
+                },
+                {
+                    "title": "chocolate",
+                    "price": 0.75,
+                    "quantity": 9
+                }
+            ]
+        }
+
+        // Exercise 97
+        // Write a function named numberOfItemTypes that takes in the shopping cart as input and returns the number of unique item types in the shopping cart.
+        // We're not yet using the quantity of each item, but rather focusing on determining how many different types of items are in the cart.
+        function numberOfItemTypes (obj) {
+            let items = obj.items;
+            let numItems = [];
+            items.forEach(item => {
+                return numItems.push(item.title);
+            })
+
+            return numItems.length;
+        }
+
+        console.log(numberOfItemTypes(shoppingCart));
+
+        // Exercise 98
+        // Write a function named totalNumberOfItems that takes in the shopping cart as input and returns the total number all item quantities.
+        // This should return the sum of all of the quantities from each item type
+
+        function totalNumberOfItems (obj) {
+            let items = obj.items;
+            let totalItems = items.reduce((total, item) => {
+                return total + item.quantity;
+            }, 0)
+            return totalItems;
+        }
+
+        console.log(totalNumberOfItems(shoppingCart));
+
+        // Exercise 99
+        // Write a function named getAverageItemPrice that takes in the shopping cart as an input and returns the average of all the item prices.
+        // Hint - This should determine the total price divided by the number of types of items. This does not account for each item type's quantity.\
+
+        function getAverageItemPrice (obj) {
+            let items = obj.items;
+            let totalPriceItems = items.reduce((price, item) => {
+                return price + item.price
+            }, 0)
+
+            console.log(totalPriceItems);
+
+            return totalPriceItems / numberOfItemTypes (obj)
+        }
+
+        console.log(getAverageItemPrice(shoppingCart));
+
+        // Exercise 100
+        // Write a function named getAverageSpentPerItem that takes in the shopping cart and returns the average of summing each item's quantities times that item's price.
+        // Hint: You may need to set an initial total price and total total quantity to zero, then sum up and divide that total price by the total quantity
+
+
+
+
+        // Exercise 101
+        // Write a function named mostSpentOnItem that takes in the shopping cart as input and returns the object associated with the item that has the highest price*quantity.
+        // Be sure to do this as programmatically as possible.
+        // Hint: Similarly to how we sometimes begin a function with setting a variable to zero, we need a starting place:
+        // Hint: Consider creating a variable that is a object with the keys "price" and "quantity" both set to 0. You can then compare each item's price and quantity total to the one from "most"
+
+
+    })();
+
+</script>
+
+
+
+</body>
+</html>
